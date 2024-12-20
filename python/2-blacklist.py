@@ -8,7 +8,7 @@ import os
 extensao_videos = ['.avi', '.mp4', '.mov', '.mkv']
 blacklist = []
 
-caminho = './lista/'
+caminho = './listas/lista/'
 
 arquivos = os.listdir(caminho)
 
@@ -36,7 +36,7 @@ if data_arquivo is not None:
             if row['Url do Servidor'] in blacklist:
                 return
             
-            response = requests.get(row['Link M3U'], timeout=10)
+            response = requests.get(row['Link M3U'], timeout=60*2)
             m3u_content = response.text
             
             qtd_video = [m3u_content.count(ext) for ext in extensao_videos if ext in m3u_content]
@@ -48,7 +48,7 @@ if data_arquivo is not None:
                 df.loc[index, 'quantidade_videos'] = sum(qtd_video)
                 print("A lista contém conteúdo sob demanda, como filmes ou séries.")
         except Exception as e:
-            blacklist.append(row['Url do Servidor'])
+            blacklist.append(row['Link M3U'])
             print(e)
 
     multThread = []
@@ -64,12 +64,12 @@ if data_arquivo is not None:
     for thread in multThread:
         thread.join()
 
-    indices_para_remover = df[df['Url do Servidor'].isin(blacklist)].index
+    indices_para_remover = df[df['Link M3U'].isin(blacklist)].index.append(df[df['Url do Servidor'].isin(blacklist)].index)
 
     df = df.drop(indices_para_remover)
 
     df = df.sort_values(by=['Validade'], ascending=[False])
 
-    df.to_csv(f'./lista-serie_tv/filtrado-{data_arquivo.year}{data_arquivo.month}{data_arquivo.day}.csv', index=False, encoding='utf-8')
+    df.to_csv(f'./listas/lista-serie_tv/filtrado-{data_arquivo.year}{data_arquivo.month}{data_arquivo.day}.csv', index=False, encoding='utf-8')
 
     print(blacklist)

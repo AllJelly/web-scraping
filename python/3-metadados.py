@@ -10,6 +10,9 @@ _KB  = _B * 1000
 _MB  = _KB * 1000
 _GB  = _MB * 1000
 
+input_arq = './listas/lista-serie_tv/filtrado-2024113.csv'
+output_arq = './listas/lista-metadados/metadados-20241203.csv'
+
 def get_metadados(infos, link, dados):
     if infos.startswith("#EXTINF") and any([True for ext in extensao_videos if ext in link]):       
         match = re.search(r'tvg-name="([^"]*)".*?tvg-logo="([^"]*)".*?group-title="([^"]*)"', infos)
@@ -55,11 +58,11 @@ def get_metadados(infos, link, dados):
                 "ano": re.search(r'\(([^)]*)\)', match.group(1))
             })
 
-df = pd.read_csv('./lista-serie_tv/filtrado-2024113.csv')
+df = pd.read_csv(input_arq)
 extensao_videos = ['.avi', '.mp4', '.mov', '.mkv']
 
 try:
-    dados = pd.read_csv('./lista-metadados/metadados-20241203.csv')
+    dados = pd.read_csv(output_arq)
     dados = dados.to_dict(orient="records")
 except:
     dados = []
@@ -85,4 +88,4 @@ for index, row in df.iterrows():
         print(e)
 
 df =  pd.DataFrame(dados)
-df.to_csv(f'./lista-metadados/metadados-20241203.csv', index=False, encoding='utf-8')
+df.to_csv(output_arq, index=False, encoding='utf-8')
