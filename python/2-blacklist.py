@@ -33,7 +33,7 @@ if data_arquivo is not None:
 
     def checkup(row, index, df, blacklist):
         try:
-            if row['Url do Servidor'] in blacklist:
+            if row['Link M3U'] in blacklist:
                 return
             
             response = requests.get(row['Link M3U'], timeout=60*2)
@@ -43,7 +43,7 @@ if data_arquivo is not None:
             
             if len(qtd_video) == 0:
                 print(f"A lista contém apenas canais de TV - {row['Link M3U']}")
-                blacklist.append(row['Url do Servidor'])
+                blacklist.append(row['Link M3U'])
             else:
                 df.loc[index, 'quantidade_videos'] = sum(qtd_video)
                 print("A lista contém conteúdo sob demanda, como filmes ou séries.")
@@ -64,7 +64,7 @@ if data_arquivo is not None:
     for thread in multThread:
         thread.join()
 
-    indices_para_remover = df[df['Link M3U'].isin(blacklist)].index.append(df[df['Url do Servidor'].isin(blacklist)].index)
+    indices_para_remover = df[df['Link M3U'].isin(blacklist)].index#.append(df[df['Url do Servidor'].isin(blacklist)].index)
 
     df = df.drop(indices_para_remover)
 
