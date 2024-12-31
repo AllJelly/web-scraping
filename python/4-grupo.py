@@ -14,6 +14,9 @@ input_arq       = "./listas/lista-metadados/metadados-20241110.csv"
 input_base_arq  = "./listas/lista-genero-provedor/grupo-20241231.csv"
 output_arq      = "./listas/lista-genero-provedor/grupo-20241231.csv"
 
+limit = 500
+count = 0
+
 movie = Movie()
 serie = TV()
 
@@ -49,25 +52,26 @@ def buscar_dados_tmdb(nome, tipo):
             generos_nomes = [g['name'] for g in generos if g['id'] in result['genre_ids']]
             
             if provedores is None and generos_nomes is None:
-                return None, None, original_title # type:ignore
+                return None, None, original_title, result['release_date'] # type:ignore
             elif provedores is None:
-                return None, ", ".join(generos_nomes), original_title # type:ignore
+                return None, ", ".join(generos_nomes), original_title, result['release_date'] # type:ignore
             elif generos_nomes is None:
-                return ", ".join(provedores), None, original_title # type:ignore
+                return ", ".join(provedores), None, original_title, result['release_date'] # type:ignore
             else:
-                return ", ".join(provedores), ", ".join(generos_nomes), original_title # type:ignore
+                return ", ".join(provedores), ", ".join(generos_nomes), original_title, result['release_date'] # type:ignore
                 
     except Exception as e:
         print(f"Erro {str(e)} - {str(nome)}")
-    return None, None, None  
+    return None, None, None, None
 
 df = pd.read_csv(input_arq)
-df_out = pd.read_csv(input_base_arq)
-if df_out.empty: 
-    df_out = pd.DataFrame(columns=df.columns.tolist() + ["provedor", "generos"])
-else:
-    df = df[~df[['group-title', 'link']].isin(df_out[['group-title', 'link']]).all(axis=1)]
 
+try:
+    df_out = pd.read_csv(input_base_arq)
+    df = df[~df[['group-title', 'link']].isin(df_out[['group-title', 'link']]).all(axis=1)]
+except:
+    df_out = pd.DataFrame(columns=df.columns.tolist() + ["provedor", "generos", "date"])
+    
 response = requests.get(url, headers=headers)
 # Verificar se a resposta foi bem-sucedida
 if response.status_code == 200 and not df.empty:
@@ -88,19 +92,18 @@ if response.status_code == 200 and not df.empty:
     df["name"] = df["name"].apply(lambda x: x[:-5] if x[-5:].lower() == " cine" else x) # cinema
     
     df["name"] = df["name"].apply(lambda x: x[:-5] if x[-5:].lower() in [" 2020", " 2021", " 2022"," 2023"," 2024"] else x) # anos
-
-    limit = 500
-    count = 0
     for _, row in df.iterrows():
         # Buscando os dados de TMDB
-        provedor, gen, name = buscar_dados_tmdb(row["name"], row["tipo"])
+        provedor, gen, name, date = buscar_dados_tmdb(row["name"], row["tipo"])
         
         # Criando um dicionário com os dados a serem adicionados à nova linha
         new_row = row.to_dict()
         new_row["provedor"] = provedor
-        new_row["generos"] = gen
+        new_row["generos"]  = gen
         if name != None:
             new_row["name"] = name
+        if date != None:
+            new_row["date"] = date
         
         # Adicionando a nova linha ao DataFrame
         df_out = pd.concat([df_out, pd.DataFrame([new_row])], ignore_index=True)
