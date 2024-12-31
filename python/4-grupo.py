@@ -1,6 +1,7 @@
 from tmdbv3api import TMDb, Movie, TV
 import pandas as pd
 import requests
+import time
 import re
 
 tmdb = TMDb()
@@ -28,14 +29,13 @@ if response.status_code == 200:
 
     # Função para buscar dados da midia
     def buscar_dados_tmdb(nome, tipo):
-        # Obter detalhes da midia
-        
-        if tipo == "Filme":
-            search = movie.search(nome)
-        else:
-            search = serie.search(re.sub(r'\sS\d{2}\sE\d{2}', '', nome))
-        
+        time.sleep(0.1)
         try:  
+            if tipo == "Filme":
+                search = movie.search(str(nome))
+            else:
+                search = serie.search(re.sub(r'\sS\d{2}\sE\d{2}', '', str(nome)))
+        
             if search:
                 result = search[0]  # Considera o primeiro resultado como mais relevante
                 try:
@@ -59,8 +59,8 @@ if response.status_code == 200:
                     return None, ", ".join(generos_nomes), original_title # type:ignore
                 elif generos_nomes is None:
                     return ", ".join(provedores), None, original_title # type:ignore
-        except:
-            pass
+        except Exception as e:
+            print(f"Erro {str(e)} - {str(nome)}")
         return None, None, None  
 
     df = pd.read_csv(input_arq)
@@ -72,13 +72,15 @@ if response.status_code == 200:
 
     # Remover " leg" do nome e marcar como legendado se terminar com " leg"
     df["legendado"] = df["name"].apply(lambda x: True if x[-4:].lower() == " leg" else False)
-    df["name"] = df["name"].apply(lambda x: x[:-4] if x[-4:].lower() == " leg" else x)
-    df["name"] = df["name"].apply(lambda x: x[:-3] if x[-3:].lower() == " 4k" else x)
+    df["name"] = df["name"].apply(lambda x: x[:-4] if x[-4:].lower() == " leg" else x) # legendado
+    df["name"] = df["name"].apply(lambda x: x[:-3] if x[-3:].lower() == " 4k" else x) # 4k
+    df["name"] = df["name"].apply(lambda x: x[:-4] if x[-4:].lower() == " nac" else x) # nacionais
+    
+    df["name"] = df["name"].apply(lambda x: x[:-5] if x[-5:].lower() in [" 2020", " 2021", " 2022"," 2023"," 2024"] else x) # anos
 
-    df[["provedor", "generos", "name"]] = df.apply(
-        lambda row: pd.Series(buscar_dados_tmdb(row["name"], row["tipo"])),
-        axis=1
-    )
+    for index, row in df.iterrows():
+        df.at[index, "provedor"], df.at[index, "generos"], df.at[index, "name"] = buscar_dados_tmdb(row["name"], row["tipo"])
+        
     # Salvando o arquivo em CSV
     df.to_csv(output_arq, index=False)
     print("Arquivo CSV atualizado com estúdio e gêneros foi criado com sucesso!")
