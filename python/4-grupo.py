@@ -51,14 +51,24 @@ def buscar_dados_tmdb(nome, tipo):
                 
             generos_nomes = [g['name'] for g in generos if g['id'] in result['genre_ids']]
             
-            if provedores is None and generos_nomes is None:
-                return None, None, original_title, result['release_date'] # type:ignore
-            elif provedores is None:
-                return None, ", ".join(generos_nomes), original_title, result['release_date'] # type:ignore
-            elif generos_nomes is None:
-                return ", ".join(provedores), None, original_title, result['release_date'] # type:ignore
+            if 'release_date' in result:
+                if provedores is None and generos_nomes is None:
+                    return None, None, original_title, result['release_date'] # type:ignore
+                elif provedores is None:
+                    return None, ", ".join(generos_nomes), original_title, result['release_date'] # type:ignore
+                elif generos_nomes is None:
+                    return ", ".join(provedores), None, original_title, result['release_date'] # type:ignore
+                else:
+                    return ", ".join(provedores), ", ".join(generos_nomes), original_title, result['release_date'] # type:ignore
             else:
-                return ", ".join(provedores), ", ".join(generos_nomes), original_title, result['release_date'] # type:ignore
+                if provedores is None and generos_nomes is None:
+                    return None, None, original_title, None # type:ignore
+                elif provedores is None:
+                    return None, ", ".join(generos_nomes), original_title, None # type:ignore
+                elif generos_nomes is None:
+                    return ", ".join(provedores), None, original_title, None # type:ignore
+                else:
+                    return ", ".join(provedores), ", ".join(generos_nomes), original_title, None # type:ignore
                 
     except Exception as e:
         print(f"Erro {str(e)} - {str(nome)}")

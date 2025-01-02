@@ -1,13 +1,21 @@
 from datetime import datetime
 import pandas as pd
+import unicodedata
 import os
 
 input_arq   = "./listas/lista-genero-provedor/grupo-20241231.csv"
 out_folder  = "./strm"
+blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao']
 
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
-    
+
+def remover_acentos(texto):
+    # Normaliza a string para decompor os caracteres com acento
+    nfkd_form = unicodedata.normalize('NFKD', texto)
+    # Filtra os caracteres que não têm acento (retira os acentos)
+    return ''.join([c for c in nfkd_form if not unicodedata.combining(c)])
+
 def resolucao(largura, altura):
     resolucoes = {
         "144p": (256, 144),
@@ -38,25 +46,40 @@ for _, row in df.iterrows():
     if pd.isna(row['provedor']) == False:
         pastas += row['provedor'].split(', ')
 
-    pastas = [category for category in pastas if 'with Ads' not in category]
     pastas = ['Suspense' if category == 'Thriller' else category for category in pastas]
-
+    pastas = ['Amazon Prime Video' if category == 'Amazon Video' else category for category in pastas]
+    pastas = ['Apple TV Plus' if category == 'Apple TV+' else category for category in pastas]
+    pastas = ['Disney Plus' if category == 'Disney +' else category for category in pastas]
+    pastas = ['Documentario' if category == 'Documentarios' else category for category in pastas]
+    pastas = ['Paramount Plus' if category == 'Paramount +' else category for category in pastas]
+    pastas = ['Claro TV Plus' if category == 'Claro tv+' else category for category in pastas]
+    pastas = ['Star Plus' if category == 'Star +' else category for category in pastas]
+    pastas = [
+        category for category in pastas
+        if not any(blacklisted in category.lower() for blacklisted in blacklist)
+    ]
+    
     if row['legendado'] == True and not ['Legendados'] in pastas:
         pastas.append("Legendados")
 
-    data = datetime.strptime( row['date'], '%Y-%m-%d')
 
-    pastas = [item.strip() for item in pastas]
-    arquivo = f"{row['name']} ({data.year})"
+    pastas = [remover_acentos(item.strip()) for item in pastas]
+    nome = row['name'].replace("/", " ")
 
+    try:
+        data = datetime.strptime(row['date'], '%Y-%m-%d')
+        arquivo = f"{nome} ({data.year})"
+    except Exception as e:
+        arquivo = f"{nome}"
+            
     for pasta in pastas:
-        caminho = f"{out_folder}/{pasta}/{arquivo}"
-        if not os.path.exists(caminho):
-            os.makedirs(caminho)
-        
         if row['tipo'] == 'Filme':
-            caminho_arquivo = f"{caminho}/{arquivo}{resolucao(row['largura'], row['altura'])}.strm"
-            with open(caminho_arquivo, 'w') as file:
-                file.write(row['link'])
-        else:
-            pass
+            caminho = f"{out_folder}/{pasta}/{arquivo}"
+            if not os.path.exists(caminho):
+                os.makedirs(caminho)
+            
+                caminho_arquivo = f"{caminho}/{arquivo}{resolucao(row['largura'], row['altura'])}.strm"
+                with open(caminho_arquivo, 'w') as file:
+                    file.write(row['link'])
+            else:
+                pass
