@@ -1,5 +1,6 @@
 from datetime import datetime
 from itertools import count
+from typing import Any
 import pandas as pd
 import unicodedata
 import os
@@ -52,6 +53,7 @@ def resolucao(largura, altura):
     return ""
     
 df = pd.read_csv(input_arq)
+df = df.sort_values(by='name', ascending=True)
 
 for _, row in df.iterrows():
     if row['tipo'] == 'Filme':
@@ -98,25 +100,25 @@ for _, row in df.iterrows():
             continue
         
         if row['tipo'] == 'Filme':
-            continue
             caminho = f"{out_folder}/{pasta}/{arquivo}"
             caminho_arquivo = f"{caminho}/{arquivo}"
         else:
             titulo, season, episode = extrair_informacoes(arquivo)
-            print(titulo, season, episode)
+            if any(value is None for value in [titulo, season, episode]):
+                break
             caminho = f"{out_folder}/{pasta}/{titulo}/Season {season}"
             caminho_arquivo = f"{caminho}/{titulo} S{season}E{episode}"
             
-        # resoluc = resolucao(row['largura'], row['altura'])
-        # if row['legendado'] == True:
-        #     caminho_arquivo = f"{caminho_arquivo} - Legendado"
-        # elif resoluc != "":
-        #     caminho_arquivo = f"{caminho_arquivo} -"
-        # else:
-        #     caminho_arquivo = f"{caminho_arquivo}"
-        # caminho_arquivo = f"{caminho_arquivo}{resoluc}.strm"
+        resoluc = resolucao(row['largura'], row['altura'])
+        if row['legendado'] == True:
+            caminho_arquivo = f"{caminho_arquivo} - Legendado"
+        elif resoluc != "":
+            caminho_arquivo = f"{caminho_arquivo} -"
+        else:
+            caminho_arquivo = f"{caminho_arquivo}"
+        caminho_arquivo = f"{caminho_arquivo}{resoluc}.strm"
             
-        # if not os.path.exists(caminho):
-        #     os.makedirs(caminho)
-        # with open(caminho_arquivo, 'w') as file:
-        #     file.write(row['link'])
+        if not os.path.exists(caminho):
+            os.makedirs(caminho)
+        with open(caminho_arquivo, 'w') as file:
+            file.write(row['link'])
