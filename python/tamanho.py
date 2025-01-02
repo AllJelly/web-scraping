@@ -1,15 +1,11 @@
 import pandas as pd
-import asyncio
-import aiohttp
-import re
-import ffmpeg
 
 _B = 1
 _KB = _B * 1000
 _MB = _KB * 1000
 _GB = _MB * 1000
 
-df = pd.read_csv('./lista-metadados/metadados-20241110.csv')
+df = pd.read_csv('./listas/lista-metadados/metadados-20241203.csv')
 
 total = int(df['tamanho_GB'].sum()/1000)
 
