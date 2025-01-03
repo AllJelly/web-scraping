@@ -12,7 +12,10 @@ df = pd.read_csv(arq)
 df = df.sort_values(by='name', ascending=True)
 
 # Filtrando o DataFrame
-df = df[~((df["tipo"].str.lower() != "filme") & (df["temporada"].isna() | df["episodio"].isna()))]
+# df = df[~((df["tipo"].str.lower() != "filme") & (df["temporada"].isna() | df["episodio"].isna()))]
+
+# Remove linhas duplicadas com base na coluna 'link'
+df = df.drop_duplicates(subset='link', keep='first').reset_index(drop=True)
 
 df.reset_index(drop=True, inplace=True)
 

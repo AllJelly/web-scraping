@@ -1,6 +1,8 @@
 from tmdbv3api import TMDb, Movie, TV
 from datetime import datetime
+from time import sleep
 import pandas as pd
+import threading
 import requests
 import warnings
 import re
@@ -15,7 +17,7 @@ input_arq       = "./listas/lista-metadados/metadados-20241203.csv"
 input_base_arq  = "./listas/lista-genero-provedor/grupo-20241231.csv"
 output_arq      = "./listas/lista-genero-provedor/grupo-20241231.csv"
 
-limit = 500
+limit = -1
 count = 0
 
 movie = Movie()
@@ -54,61 +56,60 @@ def remove_ano(nome):
     # Substitui o ano encontrado por uma string vazia e remove espaços extras
     return re.sub(padrao, '', nome).strip()
 
-def buscar_dados_tmdb(nome, tipo):
+def dados_tmdb(row, dados):
     try:  
-        if tipo == "Filme":
-            search = movie.search(str(nome))
+        if row['tipo'] == "Filme":
+            search = movie.search(str(row['name']))
         else:
-            search = serie.search(re.sub(r'\sS\d{2}\sE\d{2}', '', str(nome)))
+            search = serie.search(re.sub(r'\sS\d{2}\sE\d{2}', '', str(row['name'])))
     
         if search:
             result = search[0]  # Considera o primeiro resultado como mais relevante
             try:
-                if tipo == "Filme":
-                    original_title = result['title']
+                if row['tipo'] == "Filme":
                     try:
                         provedores = next([r['provider_name']for r in p['BR'][1]['flatrate']] for p in movie.watch_providers(result['id']) if p['results'] == 'BR')
                     except:
                         provedores = next([r['provider_name']for r in p['BR'][1]['rent']] for p in movie.watch_providers(result['id']) if p['results'] == 'BR')
                 else:
-                    original_title = nome
                     provedores = next(p['BR'][1]['flatrate'][0]['provider_name'] for p in serie.watch_providers(result['id']) if p['results'] == 'BR')
             except:
                 provedores = None
                 
             generos_nomes = [g['name'] for g in generos if g['id'] in result['genre_ids']]
             
-            if 'release_date' in result:
-                if provedores is None and generos_nomes is None:
-                    return None, None, original_title, result['release_date'] # type:ignore
-                elif provedores is None:
-                    return None, ", ".join(generos_nomes), original_title, result['release_date'] # type:ignore
-                elif generos_nomes is None:
-                    return ", ".join(provedores), None, original_title, result['release_date'] # type:ignore
-                else:
-                    return ", ".join(provedores), ", ".join(generos_nomes), original_title, result['release_date'] # type:ignore
+            # Criando um dicionário com os dados a serem adicionados à nova linha
+            new_row = row.to_dict()
+            if provedores is None:
+                new_row["provedor"] = None
             else:
-                if provedores is None and generos_nomes is None:
-                    return None, None, original_title, None # type:ignore
-                elif provedores is None:
-                    return None, ", ".join(generos_nomes), original_title, None # type:ignore
-                elif generos_nomes is None:
-                    return ", ".join(provedores), None, original_title, None # type:ignore
-                else:
-                    return ", ".join(provedores), ", ".join(generos_nomes), original_title, None # type:ignore
+                new_row["provedor"] = ", ".join(provedores)
                 
+            if provedores is None:
+                new_row["generos"] = None
+            else:
+                new_row["generos"] = ", ".join(generos_nomes)
+            
+            if 'release_date' in result:
+                new_row["date"] = result['release_date']
+            else:
+                new_row["date"] = None
+        else:
+            new_row = row.to_dict()
+            new_row["provedor"] = None
+            new_row["generos"]  = None
+            new_row["date"]     = None
     except Exception as e:
-        print(f"Erro {str(e)} - {str(nome)}")
-    return None, None, None, None
+        print(f"Erro {str(e)} - {str(row['name'])}")
+        new_row = row.to_dict()
+        new_row["provedor"] = None
+        new_row["generos"]  = None
+        new_row["date"]     = None
+    
+    dados.append(new_row)
 
 df = pd.read_csv(input_arq)
 
-try:
-    df_out = pd.read_csv(input_base_arq)
-    df = df[~df[['group-title', 'link']].isin(df_out[['group-title', 'link']]).all(axis=1)]
-except:
-    df_out = pd.DataFrame(columns=df.columns.tolist() + ["provedor", "generos", "date"])
-    
 response = requests.get(url, headers=headers)
 # Verificar se a resposta foi bem-sucedida
 if response.status_code == 200 and not df.empty:
@@ -159,25 +160,31 @@ if response.status_code == 200 and not df.empty:
     df["name"] = df["name"].apply(lambda x: x[:-4] if x[-4:].lower() == " dub" else x) # dublado
     
     df["name"] = df["name"].apply(remove_ano) # remove ano
+    
+    try:
+        df_out = pd.read_csv(input_base_arq)
+        df = df[~df[['name', 'link']].isin(df_out[['name', 'link']]).all(axis=1)]
+    except:
+        df_out = pd.DataFrame(columns=df.columns.tolist() + ["provedor", "generos", "date"])
+
+    threads, dados = [], []
     for _, row in df.iterrows():
-        # Buscando os dados de TMDB
-        provedor, gen, name, date = buscar_dados_tmdb(row["name"], row["tipo"])
-        
-        # Criando um dicionário com os dados a serem adicionados à nova linha
-        new_row = row.to_dict()
-        new_row["provedor"] = provedor
-        new_row["generos"]  = gen
-        if name != None:
-            new_row["name"] = name
-        if date != None:
-            new_row["date"] = date
-        
-        # Adicionando a nova linha ao DataFrame
-        df_out = pd.concat([df_out, pd.DataFrame([new_row])], ignore_index=True)
+        while threading.active_count() > 20:  # Limitar o número de threads ativas
+            sleep(1)
+
+        thread = threading.Thread(target=dados_tmdb, args=(row, dados, ))
+        threads.append(thread)
+        thread.start()
         
         count = count + 1
-        if count >= limit:
+        if count >= limit and limit != -1:
             break
+    
+    # Esperar todas as threads finalizarem
+    for thread in threads:
+        thread.join()
+    
+    df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True) # Adicionando a nova linha ao DataFrame
     
     # Salvando o arquivo em CSV
     df_out.to_csv(output_arq, index=False)
