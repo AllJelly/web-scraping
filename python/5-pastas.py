@@ -43,8 +43,8 @@ def resolucao(largura, altura):
 df = pd.read_csv(input_arq)
 df = df.sort_values(by='name', ascending=True)
 
-# df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
-# df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
+df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
+df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
 
 for _, row in df.iterrows():
     if row['tipo'] == 'Filme':
