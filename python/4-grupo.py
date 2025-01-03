@@ -29,20 +29,30 @@ headers = {
 }
 
 def remove_temporada_episodio(nome):
-    # Expressão regular para remover o padrão ' SXX EXX' (temporada e episódio)
-    return re.sub(r'\sS\d{2}\sE\d{2}', '', nome, flags=re.IGNORECASE)
+    """
+    Remove o padrão ' SXX EXX' do nome e retorna a temporada e o episódio extraídos.
+    """
+    # Expressão regular para capturar temporada e episódio
+    padrao = r'\sS(\d{2})\sE(\d+)'
+    match = re.search(padrao, nome, flags=re.IGNORECASE)
+    
+    if match:
+        temporada = int(match.group(1))  # Captura o número da temporada
+        episodio = int(match.group(2))  # Captura o número do episódio
+        # Remove o padrão do nome
+        nome_limpo = re.sub(padrao, '', nome, flags=re.IGNORECASE).strip()
+        return nome_limpo, temporada, episodio
+    return nome, None, None
 
 def remove_ano(nome):
     # Obtém o ano atual
     ano_atual = datetime.now().year
-
-    # Verifica se os últimos 5 caracteres correspondem a um ano válido (4 dígitos + espaço)
-    if re.match(r'.*\s(\d{4})$', nome):
-        ano = int(nome[-4:])
-        # Verifica se o ano está dentro de uma faixa válida (exemplo: 1900 até o ano atual)
-        if 1900 <= ano <= ano_atual:
-            return nome[:-5]  # Remove os últimos 5 caracteres (o ano + espaço)
-    return nome  # Retorna o nome original se não for um ano válido
+    
+    # Expressão regular para identificar e remover anos entre 1900 e o ano atual
+    padrao = rf'\b(19[0-9]{{2}}|20[0-{str(ano_atual)[2]}][0-9])\b'
+    
+    # Substitui o ano encontrado por uma string vazia e remove espaços extras
+    return re.sub(padrao, '', nome).strip()
 
 def buscar_dados_tmdb(nome, tipo):
     try:  
@@ -109,10 +119,25 @@ if response.status_code == 200 and not df.empty:
     df["tipo"] = df["group-title"].apply(lambda x: "Filme" if "filme" in x.lower() else "Série")
     df["legendado"] = df["group-title"].apply(lambda x: True if "legendado" in x.lower() else False)
 
-    df["name"] = df["name"].str.strip()
-    df["name"] = df["name"].apply(remove_temporada_episodio)
-    df["name"] = df["name"].apply(lambda x: x[:-1] if x[-1:].lower() == "." else x) # remove virgula .
+    # Criando colunas para temporada e episódio
+    df[["name", "temporada", "episodio"]] = df["name"].apply(
+        lambda x: pd.Series(remove_temporada_episodio(x))
+    )
+    df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
+    df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
+    
+    df["name"] = df["name"].apply(lambda x: x[:-1] if x[-1:].lower() == "." else x) # remove ponto .
+    
+    df["name"] = df["name"].str.replace("[-:/]", " ", regex=True)
+    df["name"] = df["name"].str.replace(" 14temp", " ", regex=True)
+    df["name"] = df["name"].str.replace(" 19 Temporada", " ", regex=True)
+    df["name"] = df["name"].str.replace(" Brasil Paralelo", " ", regex=True)
+    df["name"] = df["name"].str.replace("  ", " ", regex=True)
     df["name"] = df["name"].apply(remove_ano) # remove ano
+    df['name'] = df['name'].str.split("  ").str[0]
+    
+    df["name"] = df["name"].str.strip()
+    
     
     # Remover " leg" do nome e marcar como legendado se terminar com " leg"
     df["legendado"] = df["name"].apply(lambda x: True if x[-4:].lower() == " leg" else False)

@@ -13,18 +13,6 @@ blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
 
-def extrair_informacoes(nome):
-    # Define o padrão para capturar os números da temporada, episódio e o nome
-    padrao = r"(.*)\sS(\d{2})\sE(\d{2})"
-    # Busca o padrão no nome
-    match = re.search(padrao, nome)
-    if match:
-        titulo, season, episode = match.groups()
-        # Remove prefixos e ajusta o nome
-        titulo = titulo.split("/")[-1].strip()  # Remove diretórios no caminho
-        return titulo, season, episode
-    return None, None, None
-
 def remover_acentos(texto):
     # Normaliza a string para decompor os caracteres com acento
     nfkd_form = unicodedata.normalize('NFKD', texto)
@@ -54,6 +42,9 @@ def resolucao(largura, altura):
     
 df = pd.read_csv(input_arq)
 df = df.sort_values(by='name', ascending=True)
+
+# df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
+# df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
 
 for _, row in df.iterrows():
     if row['tipo'] == 'Filme':
@@ -103,11 +94,10 @@ for _, row in df.iterrows():
             caminho = f"{out_folder}/{pasta}/{arquivo}"
             caminho_arquivo = f"{caminho}/{arquivo}"
         else:
-            titulo, season, episode = extrair_informacoes(arquivo)
-            if any(value is None for value in [titulo, season, episode]):
+            if row['episodio'] is None or row['temporada'] is None:
                 break
-            caminho = f"{out_folder}/{pasta}/{titulo}/Season {season}"
-            caminho_arquivo = f"{caminho}/{titulo} S{season}E{episode}"
+            caminho = f"{out_folder}/{pasta}/{arquivo}/Season {row['temporada']:02}"
+            caminho_arquivo = f"{caminho}/{arquivo} S{row['temporada']:02}E{row['episodio']:02}"
             
         resoluc = resolucao(row['largura'], row['altura'])
         if row['legendado'] == True:
