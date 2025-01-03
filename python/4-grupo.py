@@ -17,7 +17,7 @@ input_arq       = "./listas/lista-metadados/metadados-20241203.csv"
 input_base_arq  = "./listas/lista-genero-provedor/grupo-20241231.csv"
 output_arq      = "./listas/lista-genero-provedor/grupo-20241231.csv"
 
-limit = -1
+limit = 600
 count = 0
 
 movie = Movie()
@@ -54,7 +54,14 @@ def remove_ano(nome):
     padrao = rf'\b(19[0-9]{{2}}|20[0-{str(ano_atual)[2]}][0-9])\b'
     
     # Substitui o ano encontrado por uma string vazia e remove espaços extras
-    return re.sub(padrao, '', nome).strip()
+    # Substitui o ano encontrado por uma string vazia
+    nome_sem_ano = re.sub(padrao, '', nome).strip()
+    
+    # Se a string resultante estiver vazia, retorna o nome original
+    if not nome_sem_ano:
+        return nome
+    
+    return nome_sem_ano
 
 def dados_tmdb(row, dados):
     try:  
@@ -163,13 +170,14 @@ if response.status_code == 200 and not df.empty:
     
     try:
         df_out = pd.read_csv(input_base_arq)
-        df = df[~df[['name', 'link']].isin(df_out[['name', 'link']]).all(axis=1)]
+        df = df[~df[['name', 'link']].apply(tuple, axis=1).isin(df_out[['name', 'link']].apply(tuple, axis=1))]
     except:
         df_out = pd.DataFrame(columns=df.columns.tolist() + ["provedor", "generos", "date"])
 
     threads, dados = [], []
     for _, row in df.iterrows():
-        while threading.active_count() > 20:  # Limitar o número de threads ativas
+        while threading.active_count() > 150:  # Limitar o número de threads ativas
+            print("Esperando para continuar")
             sleep(1)
 
         thread = threading.Thread(target=dados_tmdb, args=(row, dados, ))
@@ -184,7 +192,16 @@ if response.status_code == 200 and not df.empty:
     for thread in threads:
         thread.join()
     
-    df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True) # Adicionando a nova linha ao DataFrame
+    # Removendo duplicados e já presentes com base nas colunas 'name' e 'link'
+    seen, unique_dados = set(), []
+    for item in dados:
+        # Criar uma chave única para comparar com o conjunto 'seen'
+        chave = (item["name"], item["link"])
+        if chave not in seen and not df_out[['name', 'link']].apply(lambda x: (x['name'], x['link']) == (item['name'], item['link']), axis=1).any():
+            unique_dados.append(item)
+            seen.add(chave)
+    
+    df_out = pd.concat([df_out, pd.DataFrame(unique_dados)], ignore_index=True) # Adicionando a nova linha ao DataFrame
     
     # Salvando o arquivo em CSV
     df_out.to_csv(output_arq, index=False)
