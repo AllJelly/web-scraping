@@ -124,7 +124,6 @@ if response.status_code == 200 and not df.empty:
     generos = response.json()["genres"]
 
     # Aplicando as transformações
-    df["tipo"] = df["group-title"].apply(lambda x: "Filme" if "filme" in x.lower() else "Série")
     df["legendado"] = df["group-title"].apply(lambda x: True if "legendado" in x.lower() else False)
 
     # Criando colunas para temporada e episódio
@@ -134,9 +133,12 @@ if response.status_code == 200 and not df.empty:
     df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
     df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
     
+    df["tipo"] = df.apply(lambda row: "Filme" if pd.isna(row["temporada"]) and pd.isna(row["episodio"]) else "Série", axis=1)
+    
     df["name"] = df["name"].apply(lambda x: x[:-1] if x[-1:].lower() == "." else x) # remove ponto .
     
     df["name"] = df["name"].str.replace("[-:/]", " ", regex=True)
+    df["name"] = df["name"].str.replace(r"\*", "", regex=True)
     df["name"] = df["name"].str.replace(" 14temp", " ", regex=True)
     df["name"] = df["name"].str.replace(" 19 Temporada", " ", regex=True)
     df["name"] = df["name"].str.replace(" Brasil Paralelo", " ", regex=True)
@@ -145,7 +147,6 @@ if response.status_code == 200 and not df.empty:
     df['name'] = df['name'].str.split("  ").str[0]
     
     df["name"] = df["name"].str.strip()
-    
     
     # Remover " leg" do nome e marcar como legendado se terminar com " leg"
     df["legendado"] = df["name"].apply(lambda x: True if x[-4:].lower() == " leg" else False)
@@ -165,6 +166,10 @@ if response.status_code == 200 and not df.empty:
     
     df["dublado"] = df["name"].apply(lambda x: True if x[-4:].lower() == " dub" else False)
     df["name"] = df["name"].apply(lambda x: x[:-4] if x[-4:].lower() == " dub" else x) # dublado
+    df["dublado"] = df["name"].apply(lambda x: True if x[-7:].lower() == " [dual]" else False)
+    df["name"] = df["name"].apply(lambda x: x[:-7] if x[-7:].lower() == " [dual]" else x) # dublado
+    df["dublado"] = df["name"].apply(lambda x: True if x[-5:].lower() == " dual" else False)
+    df["name"] = df["name"].apply(lambda x: x[:-5] if x[-5:].lower() == " dual" else x) # dublado
     
     df["name"] = df["name"].apply(remove_ano) # remove ano
     
@@ -189,6 +194,7 @@ if response.status_code == 200 and not df.empty:
             break
     
     # Esperar todas as threads finalizarem
+    print("Esperando Threads finalizarem")
     for thread in threads:
         thread.join()
     
