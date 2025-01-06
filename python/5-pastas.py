@@ -8,7 +8,7 @@ import re
 
 input_arq   = "./listas/lista-genero-provedor/grupo-20241231.csv"
 out_folder  = "./strm"
-blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao']
+blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'microsoft']
 
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
