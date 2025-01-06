@@ -57,14 +57,14 @@ for _, row in df.iterrows():
     if pd.isna(row['provedor']) == False:
         pastas += row['provedor'].split(', ')
 
-    pastas = ['Suspense' if category == 'Thriller' else category for category in pastas]
-    pastas = ['Amazon Prime Video' if category == 'Amazon Video' else category for category in pastas]
-    pastas = ['Apple TV Plus' if category == 'Apple TV+' else category for category in pastas]
-    pastas = ['Disney Plus' if category == 'Disney +' else category for category in pastas]
-    pastas = ['Documentario' if category == 'Documentarios' else category for category in pastas]
-    pastas = ['Paramount Plus' if category == 'Paramount +' else category for category in pastas]
-    pastas = ['Claro TV Plus' if category == 'Claro tv+' else category for category in pastas]
-    pastas = ['Star Plus' if category == 'Star +' else category for category in pastas]
+    pastas = ['Suspense' if category.lower() == 'thriller' else category for category in pastas]
+    pastas = ['Amazon Prime Video' if category.lower() == 'amazon video' else category for category in pastas]
+    pastas = ['Apple TV Plus' if category.lower() in ['apple tv+', 'apple tv'] else category for category in pastas]
+    pastas = ['Disney Plus' if category.lower() == 'disney +' else category for category in pastas]
+    pastas = ['Documentario' if category.lower() == 'documentarios' else category for category in pastas]
+    pastas = ['Paramount Plus' if category.lower() in ['paramount +', 'paramount plus premium'] else category for category in pastas]
+    pastas = ['Claro TV Plus' if category.lower() == 'claro tv+' else category for category in pastas]
+    pastas = ['Star Plus' if category.lower() == 'star +' else category for category in pastas]
     pastas = [
         category for category in pastas
         if not any(blacklisted in category.lower() for blacklisted in blacklist)

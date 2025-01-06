@@ -6,6 +6,7 @@ import pandas as pd
 import datetime
 import os
 
+arquivo     = './listas/1-web-scraping/completo.csv'
 email       = 'arthurcoelho442zip@gmail.com'
 password    = 'arthur1478'
 login_url   = "https://vectorplayer.com/login"
@@ -99,12 +100,15 @@ if "login" not in driver.current_url.lower():
     if not os.path.exists('./lista'):
         os.makedirs('./lista')
     
-    agora = datetime.datetime.now()
+    try:
+        df_out = pd.read_csv(arquivo)
+        df = df[~df[['Nome de Usuário', 'Link M3U']].apply(tuple, axis=1).isin(df_out[['Nome de Usuário', 'Link M3U']].apply(tuple, axis=1))]
+        df_out = pd.concat([df_out, df], ignore_index=True)
+    except:
+        df_out = df
     
     # Salvar o DataFrame em um arquivo CSV
-    df.to_csv(f'./lista/completa-{agora.year}{agora.month}{agora.day}.csv', index=False, encoding='utf-8')
-
-    print(f"Dados salvos em 'completa-{agora.year}{agora.month}{agora.day}.csv'")
-    
+    df_out.to_csv(arquivo, index=False, encoding='utf-8')
+    print(f"Dados salvos em '{arquivo}'")
 else:
     driver.quit()
