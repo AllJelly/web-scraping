@@ -2,7 +2,6 @@ from time import sleep
 import pandas as pd
 import threading
 import requests
-import cv2
 import re
 
 _B   = 1
@@ -21,7 +20,7 @@ _GB  = _MB * 1000
 extensao_videos = ['.avi', '.mp4', '.m4v', '.mov', '.mkv', '.mpg', '.mpeg', '.wmv', '.flv', '.f4v', '.swf', '.avchd', '.webm', '.html5']
 input_arq = './listas/2-lista-serie_tv/filtrado.csv'
 output_arq = './listas/3-lista-videos/videos.csv'
-
+count = 0
 
 def get_metadados(infos, link, dados, url_servidor, validade, df_out):
     match = re.search(r'tvg-name="([^"]*)".*?tvg-logo="([^"]*)".*?group-title="([^"]*)"', infos)
@@ -34,11 +33,11 @@ def get_metadados(infos, link, dados, url_servidor, validade, df_out):
             mask = (df_out['Url do Servidor'] == url_servidor) & (df_out['name'] == tvg_name)
             if df_out.loc[mask, 'link'].values[0] != link:
                 df_out.loc[mask, 'link'] = link
-            return
+            return df_out
         try:
             response = requests.get(link, stream=True, timeout=30)
             if response.status_code != 200:
-                return
+                return 
         except:
             return
         
@@ -64,7 +63,7 @@ try:
     df_out = pd.read_csv(output_arq)
 except:
     df_out = pd.DataFrame(columns=["Url do Servidor", "name", "group-title", "logo-link", "link", "validade", "tamanho_GB"])
-dados, multThread = []
+dados, multThread = [], []
 for _, row in df.iterrows():
     try:
         response = requests.get(row['Link M3U'], timeout=25)
@@ -82,6 +81,14 @@ for _, row in df.iterrows():
                 thread = threading.Thread(target=get_metadados, args=(lines[i], lines[i+1], dados, row['Url do Servidor'], row['Validade'], df_out, ))
                 multThread.append(thread)
                 thread.start()
+            count+=1
+            if count > 1000:
+                df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True)
+                df_out = df_out.sort_values(by=['name'], ascending=[False])
+                df_out.reset_index(drop=True, inplace=True)
+                df_out.to_csv(output_arq, index=False, encoding='utf-8')
+                count = 0
+                dados = []
     except Exception as e:
         print(e)
 
