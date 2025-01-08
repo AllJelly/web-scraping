@@ -31,6 +31,9 @@ remover, multThread = [], []
 for _, row in df.iterrows():
     if threading.active_count() > 30:
         sleep(1)
+    if row['Validade'] < 60:
+        remover.append(row["Link M3U"])
+        continue
     thread = threading.Thread(target=req, args=(row["Link M3U"], remover, ))
     multThread.append(thread)
     thread.start()

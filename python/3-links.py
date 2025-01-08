@@ -81,21 +81,27 @@ for _, row in df.iterrows():
                 thread = threading.Thread(target=get_metadados, args=(lines[i], lines[i+1], dados, row['Url do Servidor'], row['Validade'], df_out, ))
                 multThread.append(thread)
                 thread.start()
-            count+=1
-            if count > 1000:
-                df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True)
-                df_out = df_out.sort_values(by=['name'], ascending=[False])
-                df_out.reset_index(drop=True, inplace=True)
-                df_out.to_csv(output_arq, index=False, encoding='utf-8')
-                count = 0
-                dados = []
+                count+=1
+                if count > 1000 and len(dados) > 0:
+                    df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True)
+                    df_out.to_csv(output_arq, index=False, encoding='utf-8')
+                    count = 0
+                    dados = []
     except Exception as e:
         print(e)
 
 print("Esperando Threads finalizarem...")
 for thread in multThread:
-    thread.join()
-df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True)
-df = df.sort_values(by=['name'], ascending=[False])
-df.reset_index(drop=True, inplace=True)
-df.to_csv(output_arq, index=False, encoding='utf-8')
+    try:
+        thread.join()
+    except:
+        thread.join()
+try:
+    if len(dados) > 0:  
+        df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True)
+    df_out = df_out.sort_values(by=['name'], ascending=[False])
+    df_out.reset_index(drop=True, inplace=True)
+except:
+    pass
+df_out.to_csv(output_arq, index=False, encoding='utf-8')
+    
