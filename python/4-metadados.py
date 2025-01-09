@@ -77,7 +77,7 @@ except FileNotFoundError:
 dados = []
 
 try:
-    with ThreadPoolExecutor(max_workers=1000) as executor:
+    with ThreadPoolExecutor(max_workers=50) as executor:
         futures = {}
         for _, row in df.iterrows():
             if interrupted:
@@ -93,7 +93,7 @@ try:
                     dados.append(resultado)
 
                 # Salvar dados intermediários em lotes de 500
-                if len(dados) >= 500:
+                if len(dados) >= 100:
                     print("Salvando dados intermediários...")
                     df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True)
                     df_out.to_csv(output_arq, index=False, encoding='utf-8')
