@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from tmdbv3api import TMDb, Movie, TV
 from datetime import datetime
 from time import sleep
@@ -7,18 +8,20 @@ import requests
 import warnings
 import re
 
+# Variável de controle para interrupção
+interrupted = False
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 tmdb = TMDb()
 tmdb.language   = 'pt-BR'
 tmdb.debug      = True
 tmdb.api_key    = '6e347a3898f3f9c7250dc0a46fb27cec'
-input_arq       = "./listas/lista-metadados/metadados-20241203.csv"
-input_base_arq  = "./listas/lista-genero-provedor/grupo-20241231.csv"
-output_arq      = "./listas/lista-genero-provedor/grupo-20241231.csv"
+input_arq       = "./listas/4-lista-metadados/metadados.csv"
+output_arq      = "./listas/lista-genero-provedor/grupo.csv"
 
-limit = 600
-count = 0
+limit = 500
+count = 1
 
 movie = Movie()
 serie = TV()
@@ -63,7 +66,13 @@ def remove_ano(nome):
     
     return nome_sem_ano
 
-def dados_tmdb(row, dados):
+def dados_tmdb(row):
+    """
+    Função para extrair dados do tmdb.
+    """
+    if interrupted:
+        return None
+    
     try:  
         if row['tipo'] == "Filme":
             search = movie.search(str(row['name']))
@@ -113,7 +122,7 @@ def dados_tmdb(row, dados):
         new_row["generos"]  = None
         new_row["date"]     = None
     
-    dados.append(new_row)
+    return new_row
 
 df = pd.read_csv(input_arq)
 
@@ -124,7 +133,8 @@ if response.status_code == 200 and not df.empty:
     generos = response.json()["genres"]
 
     # Aplicando as transformações
-    df["legendado"] = df["group-title"].apply(lambda x: True if "legendado" in x.lower() else False)
+    
+    df["legendado"] = df["group-title"].apply(lambda x: "legendado" in x.lower() if isinstance(x, str) else False)
 
     # Criando colunas para temporada e episódio
     df[["name", "temporada", "episodio"]] = df["name"].apply(
@@ -148,7 +158,7 @@ if response.status_code == 200 and not df.empty:
     df['name'] = df['name'].str.split("  ").str[0]
     
     df["name"] = df["name"].str.strip()
-    
+
     # Remover " leg" do nome e marcar como legendado se terminar com " leg"
     df["legendado"] = df["name"].apply(lambda x: True if x[-4:].lower() == " leg" else False)
     df["name"] = df["name"].apply(lambda x: x[:-4] if x[-4:].lower() == " leg" else x)
@@ -175,44 +185,65 @@ if response.status_code == 200 and not df.empty:
     df["name"] = df["name"].apply(remove_ano) # remove ano
     
     try:
-        df_out = pd.read_csv(input_base_arq)
+        df_out = pd.read_csv(output_arq)
         df = df[~df[['name', 'link']].apply(tuple, axis=1).isin(df_out[['name', 'link']].apply(tuple, axis=1))]
     except:
         df_out = pd.DataFrame(columns=df.columns.tolist() + ["provedor", "generos", "date"])
+            
+    dados = []
+    try:
+        with ThreadPoolExecutor(max_workers=50) as executor:
+            futures = {}
+            for _, row in df.iterrows():
+                if interrupted or count >= limit:
+                    print("Interrupção detectada. Não serão lançadas novas threads.")
+                    break
+                future = executor.submit(dados_tmdb, row)
+                futures[future] = row
+                count+=1
 
-    threads, dados = [], []
-    for _, row in df.iterrows():
-        while threading.active_count() > 150:  # Limitar o número de threads ativas
-            print("Esperando para continuar")
-            sleep(1)
+            for future in as_completed(futures):
+                try:
+                    resultado = future.result()
+                    if resultado:
+                        dados.append(resultado)
 
-        thread = threading.Thread(target=dados_tmdb, args=(row, dados, ))
-        threads.append(thread)
-        thread.start()
+                    # Salvar dados intermediários em lotes de 500
+                    if len(dados) >= 100:
+                        print("Salvando dados intermediários...")
+                        # Removendo duplicados e já presentes com base nas colunas 'name' e 'link'
+                        seen, unique_dados = set(), []
+                        for item in dados:
+                            # Criar uma chave única para comparar com o conjunto 'seen'
+                            chave = (item["name"], item["link"])
+                            if chave not in seen and not df_out[['name', 'link']].apply(lambda x: (x['name'], x['link']) == (item['name'], item['link']), axis=1).any():
+                                unique_dados.append(item)
+                                seen.add(chave)
+                        
+                        df_out = pd.concat([df_out, pd.DataFrame(unique_dados)], ignore_index=True) # Adicionando a nova linha ao DataFrame
+                        # Salvando o arquivo em CSV
+                        df_out.to_csv(output_arq, index=False)
+                        dados.clear()
+                except Exception as e:
+                    print(f"Erro ao processar: {e}")
+            print("Esperando threads em execução finalizarem...")
+    except KeyboardInterrupt:
+        print("Interrupção manual detectada. Finalizando...")
+    finally:
+        # Removendo duplicados e já presentes com base nas colunas 'name' e 'link'
+        seen, unique_dados = set(), []
+        for item in dados:
+            # Criar uma chave única para comparar com o conjunto 'seen'
+            chave = (item["name"], item["link"])
+            if chave not in seen and not df_out[['name', 'link']].apply(lambda x: (x['name'], x['link']) == (item['name'], item['link']), axis=1).any():
+                unique_dados.append(item)
+                seen.add(chave)
         
-        count = count + 1
-        if count >= limit and limit != -1:
-            break
-    
-    # Esperar todas as threads finalizarem
-    print("Esperando Threads finalizarem")
-    for thread in threads:
-        thread.join()
-    
-    # Removendo duplicados e já presentes com base nas colunas 'name' e 'link'
-    seen, unique_dados = set(), []
-    for item in dados:
-        # Criar uma chave única para comparar com o conjunto 'seen'
-        chave = (item["name"], item["link"])
-        if chave not in seen and not df_out[['name', 'link']].apply(lambda x: (x['name'], x['link']) == (item['name'], item['link']), axis=1).any():
-            unique_dados.append(item)
-            seen.add(chave)
-    
-    df_out = pd.concat([df_out, pd.DataFrame(unique_dados)], ignore_index=True) # Adicionando a nova linha ao DataFrame
-    
-    # Salvando o arquivo em CSV
-    df_out.to_csv(output_arq, index=False)
-    print("Arquivo CSV atualizado com estúdio e gêneros foi criado com sucesso!")
+        df_out = pd.concat([df_out, pd.DataFrame(unique_dados)], ignore_index=True) # Adicionando a nova linha ao DataFrame
+        
+        # Salvando o arquivo em CSV
+        df_out.to_csv(output_arq, index=False)
+        print("Arquivo CSV atualizado com estúdio e gêneros foi criado com sucesso!")
 else:
     # Exibir mensagem de erro
     print(f"Erro na requisição: {response.status_code} - {response.text}")

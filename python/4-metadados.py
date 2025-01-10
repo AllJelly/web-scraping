@@ -75,7 +75,6 @@ except FileNotFoundError:
     df_out = pd.DataFrame(columns=df.columns.tolist())
 
 dados = []
-
 try:
     with ThreadPoolExecutor(max_workers=50) as executor:
         futures = {}
