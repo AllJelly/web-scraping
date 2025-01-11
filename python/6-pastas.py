@@ -1,14 +1,12 @@
 from datetime import datetime
-from itertools import count
-from typing import Any
 import pandas as pd
 import unicodedata
 import os
-import re
 
-input_arq   = "./listas/lista-genero-provedor/grupo-20241231.csv"
+input_arq   = "./listas/lista-genero-provedor/grupo.csv"
 out_folder  = "./strm"
-blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'microsoft', 'cinema tv']
+blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv']
+blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus']
 
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
@@ -41,17 +39,18 @@ def resolucao(largura, altura):
     return ""
     
 df = pd.read_csv(input_arq)
-df = df.sort_values(by='name', ascending=True)
+df = df.sort_values(by='validade', ascending=True)
 
 df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
 df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
 
 for _, row in df.iterrows():
-    if row['tipo'] == 'Filme':
-        pastas = ["Filmes"]
-    else:
-        pastas = ["Series"]
-        
+    # if row['tipo'] == 'Filme':
+    #     pastas = ["Filmes"]
+    # else:
+    #     pastas = ["Series"]
+    
+    pastas = []
     if pd.isna(row['generos']) == False:
         pastas += row['generos'].split(', ')
     if pd.isna(row['provedor']) == False:
@@ -91,12 +90,12 @@ for _, row in df.iterrows():
             continue
         
         if row['tipo'] == 'Filme':
-            caminho = f"{out_folder}/{pasta}/{arquivo}"
+            caminho = f"{out_folder}/Filmes/{pasta}/{arquivo}"
             caminho_arquivo = f"{caminho}/{arquivo}"
         else:
             if row['episodio'] is None or row['temporada'] is None:
                 break
-            caminho = f"{out_folder}/{pasta}/{arquivo}/Season {row['temporada']:02}"
+            caminho = f"{out_folder}/Series/{pasta}/{arquivo}/Season {row['temporada']:02}"
             caminho_arquivo = f"{caminho}/{arquivo} S{row['temporada']:02}E{row['episodio']:02}"
             
         resoluc = resolucao(row['largura'], row['altura'])

@@ -1,5 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tmdbv3api import TMDb, Movie, TV
+import unicodedata
 from datetime import datetime
 from time import sleep
 import pandas as pd
@@ -65,6 +66,10 @@ def remove_ano(nome):
         return nome
     
     return nome_sem_ano
+
+def remover_acentos(texto):
+    nfkd_form = unicodedata.normalize('NFKD', texto)
+    return ''.join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 def dados_tmdb(row):
     """
@@ -183,6 +188,8 @@ if response.status_code == 200 and not df.empty:
     df["name"] = df["name"].apply(lambda x: x[:-5] if x[-5:].lower() == " dual" else x) # dublado
     
     df["name"] = df["name"].apply(remove_ano) # remove ano
+    df["name"] = df["name"].apply(lambda x: remover_acentos(x) if isinstance(x, str) else x)
+    df = df.drop_duplicates(subset=["name", "link"], keep="first").reset_index(drop=True)
     
     try:
         df_out = pd.read_csv(output_arq)
