@@ -10,121 +10,124 @@
   <ExtractTrickplayImagesDuringLibraryScan>false</ExtractTrickplayImagesDuringLibraryScan>
   <PathInfos>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Claro video/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Globoplay/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Kocowa/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Max/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Looke/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/MUBI/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Max/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Netflix/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Oldflix/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Outros/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Outros/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Filmes/Univer Video/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Amazon Prime Video/Acao</Path>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Apple TV Plus/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Amazon Prime Video/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Belas Artes a La Carte/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Apple TV Plus/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Claro TV Plus/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Belas Artes a La Carte/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Claro video/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Claro TV Plus/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Crunchyroll/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Claro video/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Disney Plus/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Crunchyroll/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/FilmBox+/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Disney Plus/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Globoplay/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/FilmBox+/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Google Play Movies/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Globoplay/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Kocowa/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Looke/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Kocowa/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Max/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Looke/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/MUBI/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Max/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Netflix/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/MUBI/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Oldflix/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Netflix/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Outros/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Oldflix/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Paramount Plus/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Outros/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Reserva Imovision/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Paramount Plus/base</Path>
     </MediaPathInfo>
     <MediaPathInfo>
-      <Path>/media/reorganizado/strm/Series/Univer Video/Acao</Path>
+      <Path>/media/reorganizado/strm/Series/Reserva Imovision/base</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Univer Video/base</Path>
     </MediaPathInfo>
   </PathInfos>
   <SaveLocalMetadata>true</SaveLocalMetadata>
