@@ -7,7 +7,8 @@ import os
 input_arq   = "./listas/lista-genero-provedor/grupo.csv"
 out_folder  = "./strm"
 blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv']
-blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix']
+blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 
+              'moviesaints', 'docsville', 'magellan tv', 'true story', 'history play']
 
 qtd_provedores = 1
 qtd_generos = 1
@@ -97,7 +98,7 @@ for _, row in df.iterrows():
     if not provedores:
         provedores = ['Outros']
     
-    nome = row['name'].replace("/", " ")
+    nome = row['titulo'].replace("/", " ")
 
     if row['tipo'] == 'Filme':
         try:

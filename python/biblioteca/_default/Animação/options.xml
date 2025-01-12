@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LibraryOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>true</Enabled>
+  <EnablePhotos>true</EnablePhotos>
+  <EnableRealtimeMonitor>true</EnableRealtimeMonitor>
+  <EnableLUFSScan>true</EnableLUFSScan>
+  <EnableChapterImageExtraction>false</EnableChapterImageExtraction>
+  <ExtractChapterImagesDuringLibraryScan>false</ExtractChapterImagesDuringLibraryScan>
+  <EnableTrickplayImageExtraction>false</EnableTrickplayImageExtraction>
+  <ExtractTrickplayImagesDuringLibraryScan>false</ExtractTrickplayImagesDuringLibraryScan>
+  <PathInfos>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Amazon Prime Video/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Apple TV Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Belas Artes a La Carte/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Claro TV Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Claro video/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Crunchyroll/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Disney Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/FilmBox+/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Globoplay/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Kocowa/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Looke/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Max/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/MUBI/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Netflix/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Oldflix/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Outros/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Paramount Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Reserva Imovision/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Univer Video/Animacao</Path>
+    </MediaPathInfo>
+  </PathInfos>
+  <SaveLocalMetadata>true</SaveLocalMetadata>
+  <EnableAutomaticSeriesGrouping>false</EnableAutomaticSeriesGrouping>
+  <EnableEmbeddedTitles>true</EnableEmbeddedTitles>
+  <EnableEmbeddedExtrasTitles>false</EnableEmbeddedExtrasTitles>
+  <EnableEmbeddedEpisodeInfos>false</EnableEmbeddedEpisodeInfos>
+  <AutomaticRefreshIntervalDays>0</AutomaticRefreshIntervalDays>
+  <PreferredMetadataLanguage>pt-br</PreferredMetadataLanguage>
+  <MetadataCountryCode>BR</MetadataCountryCode>
+  <SeasonZeroDisplayName>Specials</SeasonZeroDisplayName>
+  <MetadataSavers />
+  <DisabledLocalMetadataReaders />
+  <LocalMetadataReaderOrder>
+    <string>Nfo</string>
+  </LocalMetadataReaderOrder>
+  <DisabledSubtitleFetchers />
+  <SubtitleFetcherOrder />
+  <DisabledMediaSegmentProviders />
+  <MediaSegmentProvideOrder />
+  <SkipSubtitlesIfEmbeddedSubtitlesPresent>false</SkipSubtitlesIfEmbeddedSubtitlesPresent>
+  <SkipSubtitlesIfAudioTrackMatches>false</SkipSubtitlesIfAudioTrackMatches>
+  <SubtitleDownloadLanguages />
+  <RequirePerfectSubtitleMatch>true</RequirePerfectSubtitleMatch>
+  <SaveSubtitlesWithMedia>true</SaveSubtitlesWithMedia>
+  <DisabledLyricFetchers />
+  <LyricFetcherOrder />
+  <CustomTagDelimiters>
+    <string>/</string>
+    <string>|</string>
+    <string>;</string>
+    <string>\</string>
+  </CustomTagDelimiters>
+  <DelimiterWhitelist />
+  <AutomaticallyAddToCollection>true</AutomaticallyAddToCollection>
+  <AllowEmbeddedSubtitles>AllowAll</AllowEmbeddedSubtitles>
+  <TypeOptions>
+    <TypeOptions>
+      <Type>Series</Type>
+      <MetadataFetchers>
+        <string>AniSearch</string>
+        <string>AniList</string>
+        <string>AniDB</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>Missing Episode Fetcher</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniSearch</string>
+        <string>AniList</string>
+        <string>AniDB</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>Missing Episode Fetcher</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetcherOrder>
+      <ImageOptions>
+        <ImageOption>
+          <Type>Primary</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Art</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>BoxRear</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Banner</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Box</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Disc</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Logo</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Menu</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Thumb</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Backdrop</Type>
+          <Limit>1</Limit>
+          <MinWidth>1280</MinWidth>
+        </ImageOption>
+      </ImageOptions>
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Season</Type>
+      <MetadataFetchers>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+        <string>TheMovieDb</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+        <string>TheMovieDb</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetcherOrder>
+      <ImageOptions>
+        <ImageOption>
+          <Type>Primary</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Art</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>BoxRear</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Banner</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Box</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Disc</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Logo</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Menu</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Thumb</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Backdrop</Type>
+          <Limit>1</Limit>
+          <MinWidth>1280</MinWidth>
+        </ImageOption>
+      </ImageOptions>
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Episode</Type>
+      <MetadataFetchers>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Movie</Type>
+      <MetadataFetchers>
+        <string>AniList</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniList</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+        <string>Fanart</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>Fanart</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie DataAnimacao</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetcherOrder>
+      <ImageOptions>
+        <ImageOption>
+          <Type>Primary</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Art</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>BoxRear</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Banner</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Box</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Disc</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Logo</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Menu</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Thumb</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Backdrop</Type>
+          <Limit>1</Limit>
+          <MinWidth>1280</MinWidth>
+        </ImageOption>
+      </ImageOptions>
+    </TypeOptions>
+  </TypeOptions>
+</LibraryOptions>

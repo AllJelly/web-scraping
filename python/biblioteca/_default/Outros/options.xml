@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LibraryOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>true</Enabled>
+  <EnablePhotos>true</EnablePhotos>
+  <EnableRealtimeMonitor>false</EnableRealtimeMonitor>
+  <EnableLUFSScan>false</EnableLUFSScan>
+  <EnableChapterImageExtraction>false</EnableChapterImageExtraction>
+  <ExtractChapterImagesDuringLibraryScan>false</ExtractChapterImagesDuringLibraryScan>
+  <EnableTrickplayImageExtraction>false</EnableTrickplayImageExtraction>
+  <ExtractTrickplayImagesDuringLibraryScan>false</ExtractTrickplayImagesDuringLibraryScan>
+  <PathInfos />
+  <SaveLocalMetadata>false</SaveLocalMetadata>
+  <EnableAutomaticSeriesGrouping>true</EnableAutomaticSeriesGrouping>
+  <EnableEmbeddedTitles>false</EnableEmbeddedTitles>
+  <EnableEmbeddedExtrasTitles>false</EnableEmbeddedExtrasTitles>
+  <EnableEmbeddedEpisodeInfos>false</EnableEmbeddedEpisodeInfos>
+  <AutomaticRefreshIntervalDays>0</AutomaticRefreshIntervalDays>
+  <PreferredMetadataLanguage />
+  <MetadataCountryCode />
+  <SeasonZeroDisplayName>Specials</SeasonZeroDisplayName>
+  <MetadataSavers>
+    <string>Nfo</string>
+  </MetadataSavers>
+  <DisabledLocalMetadataReaders />
+  <LocalMetadataReaderOrder>
+    <string>Nfo</string>
+  </LocalMetadataReaderOrder>
+  <DisabledSubtitleFetchers />
+  <SubtitleFetcherOrder />
+  <DisabledMediaSegmentProviders />
+  <MediaSegmentProvideOrder />
+  <SkipSubtitlesIfEmbeddedSubtitlesPresent>false</SkipSubtitlesIfEmbeddedSubtitlesPresent>
+  <SkipSubtitlesIfAudioTrackMatches>true</SkipSubtitlesIfAudioTrackMatches>
+  <SubtitleDownloadLanguages />
+  <RequirePerfectSubtitleMatch>true</RequirePerfectSubtitleMatch>
+  <SaveSubtitlesWithMedia>true</SaveSubtitlesWithMedia>
+  <DisabledLyricFetchers />
+  <LyricFetcherOrder />
+  <CustomTagDelimiters>
+    <string>/</string>
+    <string>|</string>
+    <string>;</string>
+    <string>\</string>
+  </CustomTagDelimiters>
+  <DelimiterWhitelist />
+  <AutomaticallyAddToCollection>false</AutomaticallyAddToCollection>
+  <AllowEmbeddedSubtitles>AllowAll</AllowEmbeddedSubtitles>
+  <TypeOptions>
+    <TypeOptions>
+      <Type>Series</Type>
+      <MetadataFetchers>
+        <string>AniSearch</string>
+        <string>AniList</string>
+        <string>AniDB</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+        <string>Missing Episode Fetcher</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniSearch</string>
+        <string>AniList</string>
+        <string>AniDB</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+        <string>Missing Episode Fetcher</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Season</Type>
+      <MetadataFetchers>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+        <string>TheMovieDb</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+        <string>TheMovieDb</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Episode</Type>
+      <MetadataFetchers>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie Database</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie Database</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Movie</Type>
+      <MetadataFetchers>
+        <string>AniList</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniList</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+        <string>Fanart</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie Database</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>Fanart</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie Database</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+  </TypeOptions>
+</LibraryOptions>

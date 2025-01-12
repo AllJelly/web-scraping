@@ -21,7 +21,7 @@ tmdb.api_key    = '6e347a3898f3f9c7250dc0a46fb27cec'
 input_arq       = "./listas/4-lista-metadados/metadados.csv"
 output_arq      = "./listas/lista-genero-provedor/grupo.csv"
 
-limit = 500
+limit = 800
 count = 1
 
 movie = Movie()
@@ -75,9 +75,11 @@ def dados_tmdb(row):
     """
     Função para extrair dados do tmdb.
     """
+    
     if interrupted:
         return None
     
+    # Criando um dicionário com os dados a serem adicionados à nova linha
     try:  
         if row['tipo'] == "Filme":
             search = movie.search(str(row['name']))
@@ -85,7 +87,16 @@ def dados_tmdb(row):
             search = serie.search(re.sub(r'\sS\d{2}\sE\d{2}', '', str(row['name'])))
     
         if search:
+            new_row = row.to_dict()
             result = search[0]  # Considera o primeiro resultado como mais relevante
+            try:
+                new_row['titulo'] = result['title']
+            except:
+                try:
+                    new_row['titulo'] = result['name']
+                except Exception as e:
+                    new_row['titulo'] = row['name']
+                    print(str(e))
             try:
                 if row['tipo'] == "Filme":
                     try:
@@ -99,8 +110,6 @@ def dados_tmdb(row):
                 
             generos_nomes = [g['name'] for g in generos if g['id'] in result['genre_ids']]
             
-            # Criando um dicionário com os dados a serem adicionados à nova linha
-            new_row = row.to_dict()
             if provedores is None:
                 new_row["provedor"] = None
             else:
@@ -119,14 +128,15 @@ def dados_tmdb(row):
             new_row = row.to_dict()
             new_row["provedor"] = None
             new_row["generos"]  = None
+            new_row['titulo']   = row['name']
             new_row["date"]     = None
     except Exception as e:
         print(f"Erro {str(e)} - {str(row['name'])}")
         new_row = row.to_dict()
         new_row["provedor"] = None
         new_row["generos"]  = None
+        new_row['titulo']   = row['name']
         new_row["date"]     = None
-    
     return new_row
 
 df = pd.read_csv(input_arq)

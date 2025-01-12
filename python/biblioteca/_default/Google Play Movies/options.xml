@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LibraryOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>true</Enabled>
+  <EnablePhotos>true</EnablePhotos>
+  <EnableRealtimeMonitor>true</EnableRealtimeMonitor>
+  <EnableLUFSScan>true</EnableLUFSScan>
+  <EnableChapterImageExtraction>false</EnableChapterImageExtraction>
+  <ExtractChapterImagesDuringLibraryScan>false</ExtractChapterImagesDuringLibraryScan>
+  <EnableTrickplayImageExtraction>false</EnableTrickplayImageExtraction>
+  <ExtractTrickplayImagesDuringLibraryScan>false</ExtractTrickplayImagesDuringLibraryScan>
+  <PathInfos>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Series/Google Play Movies/Terror</Path>
+    </MediaPathInfo>
+  </PathInfos>
+  <SaveLocalMetadata>true</SaveLocalMetadata>
+  <EnableAutomaticSeriesGrouping>false</EnableAutomaticSeriesGrouping>
+  <EnableEmbeddedTitles>true</EnableEmbeddedTitles>
+  <EnableEmbeddedExtrasTitles>false</EnableEmbeddedExtrasTitles>
+  <EnableEmbeddedEpisodeInfos>false</EnableEmbeddedEpisodeInfos>
+  <AutomaticRefreshIntervalDays>0</AutomaticRefreshIntervalDays>
+  <PreferredMetadataLanguage>pt-br</PreferredMetadataLanguage>
+  <MetadataCountryCode>BR</MetadataCountryCode>
+  <SeasonZeroDisplayName>Specials</SeasonZeroDisplayName>
+  <MetadataSavers />
+  <DisabledLocalMetadataReaders />
+  <LocalMetadataReaderOrder>
+    <string>Nfo</string>
+  </LocalMetadataReaderOrder>
+  <DisabledSubtitleFetchers />
+  <SubtitleFetcherOrder />
+  <DisabledMediaSegmentProviders />
+  <MediaSegmentProvideOrder />
+  <SkipSubtitlesIfEmbeddedSubtitlesPresent>false</SkipSubtitlesIfEmbeddedSubtitlesPresent>
+  <SkipSubtitlesIfAudioTrackMatches>false</SkipSubtitlesIfAudioTrackMatches>
+  <SubtitleDownloadLanguages />
+  <RequirePerfectSubtitleMatch>true</RequirePerfectSubtitleMatch>
+  <SaveSubtitlesWithMedia>true</SaveSubtitlesWithMedia>
+  <DisabledLyricFetchers />
+  <LyricFetcherOrder />
+  <CustomTagDelimiters>
+    <string>/</string>
+    <string>|</string>
+    <string>;</string>
+    <string>\</string>
+  </CustomTagDelimiters>
+  <DelimiterWhitelist />
+  <AutomaticallyAddToCollection>true</AutomaticallyAddToCollection>
+  <AllowEmbeddedSubtitles>AllowAll</AllowEmbeddedSubtitles>
+  <TypeOptions>
+    <TypeOptions>
+      <Type>Series</Type>
+      <MetadataFetchers>
+        <string>AniSearch</string>
+        <string>AniList</string>
+        <string>AniDB</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>Missing Episode Fetcher</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniSearch</string>
+        <string>AniList</string>
+        <string>AniDB</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>Missing Episode Fetcher</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetcherOrder>
+      <ImageOptions>
+        <ImageOption>
+          <Type>Primary</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Art</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>BoxRear</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Banner</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Box</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Disc</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Logo</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Menu</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Thumb</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Backdrop</Type>
+          <Limit>1</Limit>
+          <MinWidth>1280</MinWidth>
+        </ImageOption>
+      </ImageOptions>
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Season</Type>
+      <MetadataFetchers>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+        <string>TheMovieDb</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+        <string>TheMovieDb</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>Fanart</string>
+        <string>TheMovieDb</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>AniSearch</string>
+        <string>TheTVDB</string>
+      </ImageFetcherOrder>
+      <ImageOptions>
+        <ImageOption>
+          <Type>Primary</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Art</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>BoxRear</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Banner</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Box</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Disc</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Logo</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Menu</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Thumb</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Backdrop</Type>
+          <Limit>1</Limit>
+          <MinWidth>1280</MinWidth>
+        </ImageOption>
+      </ImageOptions>
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Episode</Type>
+      <MetadataFetchers>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+    <TypeOptions>
+      <Type>Movie</Type>
+      <MetadataFetchers>
+        <string>AniList</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniList</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+        <string>Fanart</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>Fanart</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie DataGoogle Play Movies</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetcherOrder>
+      <ImageOptions>
+        <ImageOption>
+          <Type>Primary</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Art</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>BoxRear</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Banner</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Box</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Disc</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Logo</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Menu</Type>
+          <Limit>0</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Thumb</Type>
+          <Limit>1</Limit>
+          <MinWidth>0</MinWidth>
+        </ImageOption>
+        <ImageOption>
+          <Type>Backdrop</Type>
+          <Limit>1</Limit>
+          <MinWidth>1280</MinWidth>
+        </ImageOption>
+      </ImageOptions>
+    </TypeOptions>
+  </TypeOptions>
+</LibraryOptions>
