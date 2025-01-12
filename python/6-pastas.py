@@ -7,10 +7,10 @@ import os
 input_arq   = "./listas/lista-genero-provedor/grupo.csv"
 out_folder  = "./strm"
 blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv']
-blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca']
+blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix']
 
 qtd_provedores = 1
-qtd_generos = 2
+qtd_generos = 1
 
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
