@@ -1,3 +1,4 @@
+from curses import beep
 from datetime import datetime
 import pandas as pd
 import unicodedata
@@ -6,7 +7,10 @@ import os
 input_arq   = "./listas/lista-genero-provedor/grupo.csv"
 out_folder  = "./strm"
 blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv']
-blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus']
+blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca']
+
+qtd_provedores = 1
+qtd_generos = 2
 
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
@@ -44,36 +48,55 @@ df = df.sort_values(by='validade', ascending=True)
 df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
 df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
 
-for _, row in df.iterrows():
-    # if row['tipo'] == 'Filme':
-    #     pastas = ["Filmes"]
-    # else:
-    #     pastas = ["Series"]
-    
-    pastas = []
-    if pd.isna(row['generos']) == False:
-        pastas += row['generos'].split(', ')
-    if pd.isna(row['provedor']) == False:
-        pastas += row['provedor'].split(', ')
+# df = df.iloc[4000:,:]
+# df = df.iloc[9986:,:]
+# df = df.iloc[10015:,:]
+# df = df.iloc[32000:,:]
 
-    pastas = ['Suspense' if category.lower() == 'thriller' else category for category in pastas]
-    pastas = ['Amazon Prime Video' if category.lower() == 'amazon video' else category for category in pastas]
-    pastas = ['Apple TV Plus' if category.lower() in ['apple tv+', 'apple tv'] else category for category in pastas]
-    pastas = ['Disney Plus' if category.lower() == 'disney +' else category for category in pastas]
-    pastas = ['Documentario' if category.lower() == 'documentarios' else category for category in pastas]
-    pastas = ['Paramount Plus' if category.lower() in ['paramount +', 'paramount plus premium'] else category for category in pastas]
-    pastas = ['Claro TV Plus' if category.lower() == 'claro tv+' else category for category in pastas]
-    pastas = ['Star Plus' if category.lower() == 'star +' else category for category in pastas]
-    pastas = [
-        category for category in pastas
+for _, row in df.iterrows():
+    if pd.isna(row['generos']) == False:
+        generos = [prov for prov in row['generos'].split(', ') if len(prov) > 1]
+    else:
+        generos = []
+        
+    if pd.isna(row['provedor']) == False:
+        provedores = [prov for prov in row['provedor'].split(', ') if len(prov) > 1]
+    else:
+        provedores = []
+    
+    # Genero
+    generos = [
+        category for category in generos
         if not any(blacklisted in category.lower() for blacklisted in blacklist)
     ]
+    generos = [remover_acentos(item.strip()) for item in generos]
+    generos = ['Suspense' if category.lower() == 'thriller' else category for category in generos]
+    generos = ['Documentario' if category.lower() == 'documentarios' else category for category in generos]
+    if row['legendado'] == True and not ['Legendados'] in generos:
+        if generos == ['Outros']:
+            generos = ["Legendados"]
+        else:
+            generos.append("Legendados")
+    generos = generos[:qtd_generos]
+    if not generos:
+        generos = ['Outros']
+        
+    # Provedores
+    provedores = [
+        category for category in provedores
+        if not any(blacklisted in category.lower() for blacklisted in blacklist)
+    ]
+    provedores = provedores[:qtd_provedores]
+    provedores = [remover_acentos(item.strip()) for item in provedores]
+    provedores = ['Amazon Prime Video' if category.lower() == 'amazon video' else category for category in provedores]
+    provedores = ['Apple TV Plus' if category.lower() in ['apple tv+', 'apple tv'] else category for category in provedores]
+    provedores = ['Disney Plus' if category.lower() == 'disney +' else category for category in provedores]
+    provedores = ['Paramount Plus' if category.lower() in ['paramount +', 'paramount plus premium'] else category for category in provedores]
+    provedores = ['Claro TV Plus' if category.lower() == 'claro tv+' else category for category in provedores]
+    provedores = ['Star Plus' if category.lower() == 'star +' else category for category in provedores]
+    if not provedores:
+        provedores = ['Outros']
     
-    if row['legendado'] == True and not ['Legendados'] in pastas:
-        pastas.append("Legendados")
-
-
-    pastas = [remover_acentos(item.strip()) for item in pastas]
     nome = row['name'].replace("/", " ")
 
     if row['tipo'] == 'Filme':
@@ -84,18 +107,15 @@ for _, row in df.iterrows():
             arquivo = f"{nome}"
     else:
         arquivo = nome
-            
-    for pasta in pastas:
-        if len(pasta) <= 1:
-            continue
-        
+                
+    for genero in generos:
         if row['tipo'] == 'Filme':
-            caminho = f"{out_folder}/Filmes/{pasta}/{arquivo}"
+            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/{arquivo}"
             caminho_arquivo = f"{caminho}/{arquivo}"
         else:
             if row['episodio'] is None or row['temporada'] is None:
                 break
-            caminho = f"{out_folder}/Series/{pasta}/{arquivo}/Season {row['temporada']:02}"
+            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/{arquivo}/Season {row['temporada']:02}"
             caminho_arquivo = f"{caminho}/{arquivo} S{row['temporada']:02}E{row['episodio']:02}"
             
         resoluc = resolucao(row['largura'], row['altura'])
