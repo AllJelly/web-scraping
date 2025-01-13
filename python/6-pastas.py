@@ -10,6 +10,37 @@ blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple
 blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 
               'moviesaints', 'docsville', 'magellan tv', 'true story', 'history play']
 
+mapa = {
+    "A, m, a, z, o, n,  , P, r, i, m, e,  , V, i, d, e, o": "Amazon Prime Video",
+    "A, m, a, z, o, n,  , V, i, d, e, o": "Amazon Prime Video",
+    
+    "A, p, p, l, e,  , T, V,  , P, l, u, s": "Apple TV Plus",
+    "A, p, p, l, e,  , T, V, +": "Apple TV Plus",
+    "A, p, p, l, e,  , T, V": "Apple TV Plus",
+    
+    "C, l, a, r, o,  , t, v, +": "Claro TV+",
+    "C, l, a, r, o,  , v, i, d, e, o": "Claro Video",
+    "C, r, u, n, c, h, y, r, o, l, l": "Crunchyroll",
+    
+    "D, i, s, n, e, y,  , P, l, u, s": "Disney Plus",
+    "D, i, s, n, e, y, +": "Disney Plus",
+    
+    "G, l, o, b, o, p, l, a, y": "Globoplay",
+    "G, l, o, o, g, l, e,  , P, l, a, y,  , M, o, v, i, e, s": "Google Play Movies",
+    "K, o, c, o, w, a": "Kocowa",
+    "L, o, o, k, e": "Looke",
+    "M, a, x": "Max",
+    "M, U, B, I": "MUBI",
+    "N, e, t, f, l, i, x": "Netflix",
+    "O, l, d, f, l, i, x": "Oldflix",
+    
+    "P, a, r, a, m, o, u, n, t,  , P, l, u, s": "Paramount Plus",
+    "P, a, r, a, m, o, u, n, t, +": "Paramount Plus",
+    
+    "R, e, s, e, r, v, a,  , I, m, o, v, i, s, i, o, n": "Reserva Imovision",
+    "U, n, i, v, e, r,  , V, i, d, e, o": "Univer Video",
+}
+
 qtd_provedores = 1
 qtd_generos = 1
 
@@ -61,6 +92,8 @@ for _, row in df.iterrows():
         generos = []
         
     if pd.isna(row['provedor']) == False:
+        for chave, value in mapa.items():
+            row['provedor'] = row['provedor'].replace(chave, value)
         provedores = [prov for prov in row['provedor'].split(', ') if len(prov) > 1]
     else:
         provedores = []
@@ -78,7 +111,18 @@ for _, row in df.iterrows():
             generos = ["Legendados"]
         else:
             generos.append("Legendados")
-    generos = generos[:qtd_generos]
+    if 'Animação'in generos:
+        generos = ['Animação']
+    elif 'Documentário'in generos:
+        generos = ['Documentário']
+    elif 'Romance'in generos:
+        generos = ['Romance']
+    elif 'Drama'in generos:
+        generos = ['Drama']
+    elif 'Comédia'in generos:
+        generos = ['Comédia']
+    else:
+        generos = generos[:qtd_generos]
     if not generos:
         generos = ['Outros']
         
