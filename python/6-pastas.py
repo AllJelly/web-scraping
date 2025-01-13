@@ -80,6 +80,9 @@ df = df.sort_values(by='validade', ascending=True)
 df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
 df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
 
+
+df = df.drop_duplicates(subset=["titulo", "largura", "altura","temporada", "episodio"], keep="first").reset_index(drop=True)
+
 # df = df.iloc[4000:,:]
 # df = df.iloc[9986:,:]
 # df = df.iloc[10015:,:]
