@@ -21,7 +21,7 @@ tmdb.api_key    = '6e347a3898f3f9c7250dc0a46fb27cec'
 input_arq       = "./listas/4-lista-metadados/metadados.csv"
 output_arq      = "./listas/lista-genero-provedor/grupo.csv"
 
-limit = 800
+limit = 600
 count = 1
 
 movie = Movie()

@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LibraryOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>true</Enabled>
+  <EnablePhotos>true</EnablePhotos>
+  <EnableRealtimeMonitor>false</EnableRealtimeMonitor>
+  <EnableLUFSScan>false</EnableLUFSScan>
+  <EnableChapterImageExtraction>false</EnableChapterImageExtraction>
+  <ExtractChapterImagesDuringLibraryScan>false</ExtractChapterImagesDuringLibraryScan>
+  <EnableTrickplayImageExtraction>false</EnableTrickplayImageExtraction>
+  <ExtractTrickplayImagesDuringLibraryScan>false</ExtractTrickplayImagesDuringLibraryScan>
+  <PathInfos>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Amazon Prime Video/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Apple TV Plus/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Belas Artes a La Carte/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro TV Plus/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Claro video/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Crunchyroll/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Disney Plus/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/FilmBox+/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Globoplay/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Google Play Movies/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Kocowa/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Looke/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Max/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/MUBI/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Netflix/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Oldflix/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Outros/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Paramount Plus/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Reserva Imovision/Terror</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Acao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Animacao</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Aventura</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Comedia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Crime</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Documentario</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Drama</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Familia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Fantasia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Faroeste</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Ficcao cientifica</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Guerra</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Historia</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Misterio</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Outros</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Romance</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Suspense</Path>
+    </MediaPathInfo>
+    <MediaPathInfo>
+      <Path>/media/reorganizado/strm/Filmes/Univer Video/Terror</Path>
+    </MediaPathInfo>
+  </PathInfos>
+  <SaveLocalMetadata>false</SaveLocalMetadata>
+  <EnableAutomaticSeriesGrouping>true</EnableAutomaticSeriesGrouping>
+  <EnableEmbeddedTitles>false</EnableEmbeddedTitles>
+  <EnableEmbeddedExtrasTitles>false</EnableEmbeddedExtrasTitles>
+  <EnableEmbeddedEpisodeInfos>false</EnableEmbeddedEpisodeInfos>
+  <AutomaticRefreshIntervalDays>0</AutomaticRefreshIntervalDays>
+  <PreferredMetadataLanguage />
+  <MetadataCountryCode />
+  <SeasonZeroDisplayName>Specials</SeasonZeroDisplayName>
+  <MetadataSavers>
+    <string>Nfo</string>
+  </MetadataSavers>
+  <DisabledLocalMetadataReaders />
+  <LocalMetadataReaderOrder>
+    <string>Nfo</string>
+  </LocalMetadataReaderOrder>
+  <DisabledSubtitleFetchers />
+  <SubtitleFetcherOrder />
+  <DisabledMediaSegmentProviders />
+  <MediaSegmentProvideOrder />
+  <SkipSubtitlesIfEmbeddedSubtitlesPresent>false</SkipSubtitlesIfEmbeddedSubtitlesPresent>
+  <SkipSubtitlesIfAudioTrackMatches>true</SkipSubtitlesIfAudioTrackMatches>
+  <SubtitleDownloadLanguages />
+  <RequirePerfectSubtitleMatch>true</RequirePerfectSubtitleMatch>
+  <SaveSubtitlesWithMedia>true</SaveSubtitlesWithMedia>
+  <DisabledLyricFetchers />
+  <LyricFetcherOrder />
+  <CustomTagDelimiters>
+    <string>/</string>
+    <string>|</string>
+    <string>;</string>
+    <string>\</string>
+  </CustomTagDelimiters>
+  <DelimiterWhitelist />
+  <AutomaticallyAddToCollection>false</AutomaticallyAddToCollection>
+  <AllowEmbeddedSubtitles>AllowAll</AllowEmbeddedSubtitles>
+  <TypeOptions>
+    <TypeOptions>
+      <Type>Movie</Type>
+      <MetadataFetchers>
+        <string>AniList</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetchers>
+      <MetadataFetcherOrder>
+        <string>AniList</string>
+        <string>TheMovieDb</string>
+        <string>The Open Movie Database</string>
+        <string>AniDB</string>
+        <string>TheTVDB</string>
+      </MetadataFetcherOrder>
+      <ImageFetchers>
+        <string>TheMovieDb</string>
+        <string>Fanart</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie Database</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetchers>
+      <ImageFetcherOrder>
+        <string>TheMovieDb</string>
+        <string>Fanart</string>
+        <string>AniDB</string>
+        <string>AniList</string>
+        <string>TheTVDB</string>
+        <string>The Open Movie Database</string>
+        <string>Embedded Image Extractor</string>
+        <string>Screen Grabber</string>
+      </ImageFetcherOrder>
+      <ImageOptions />
+    </TypeOptions>
+  </TypeOptions>
+</LibraryOptions>

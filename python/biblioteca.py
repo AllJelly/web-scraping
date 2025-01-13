@@ -4,6 +4,7 @@ import unidecode
 # Caminho da pasta com os arquivos
 pasta_provedor = "./biblioteca/provedor"
 pasta_genero = "./biblioteca/genero"
+pasta_filme = "./biblioteca/filme"
 
 provedores = ["Amazon Prime Video", "Apple TV Plus", "Belas Artes a La Carte", "Claro TV Plus", 
               "Claro video", "Crunchyroll", "Disney Plus", "FilmBox+", "Globoplay", "Google Play Movies", "Kocowa",
@@ -13,10 +14,7 @@ generos = ["Ação", "Animação", "Aventura", "Comédia",
            "Crime", "Documentário", "Drama", "Família", "Fantasia", "Faroeste", "Ficção científica",
            "Guerra", "História", "Mistério", "Romance", "Outros", "Suspense", "Terror"]
 
-# Palavra base para substituição
-palavra_base = "base"
-
-def troca_nome_em_arquivos(arquivo, pasta, tipos):
+def troca_nome_em_arquivos(arquivo, pasta, tipos, base):
     caminho_arquivo = os.path.join(pasta, arquivo)
     
     # Verifica se é um arquivo
@@ -28,10 +26,10 @@ def troca_nome_em_arquivos(arquivo, pasta, tipos):
         for tipo in tipos:
             # Substitui todas as ocorrências da palavra base pelo nome sem acentos
             tipo_sem_acentos = unidecode.unidecode(tipo)
-            conteudo_modificado = conteudo.replace(palavra_base, tipo_sem_acentos)
+            conteudo_modificado = conteudo.replace(base, tipo_sem_acentos)
             
             # Substitui a palavra base no nome do arquivo, se existir
-            novo_nome_arquivo = arquivo.replace(palavra_base, tipo_sem_acentos)
+            novo_nome_arquivo = arquivo.replace(base, tipo_sem_acentos)
             
             # Caminho de saída para o arquivo
             caminho_arquivo_out = os.path.join(f"{pasta}/{tipo}", novo_nome_arquivo)
@@ -42,13 +40,20 @@ def troca_nome_em_arquivos(arquivo, pasta, tipos):
             # Salva o conteúdo modificado no novo arquivo
             with open(caminho_arquivo_out, 'w', encoding='utf-8') as file:
                 file.write(conteudo_modificado)
+                
+# Palavra base para substituição
+palavra_base = "base"
 
-# Percorre todos os arquivos da provedor
-for arquivo in os.listdir(pasta_provedor):
-    troca_nome_em_arquivos(arquivo, pasta_provedor, provedores)
+# # Percorre todos os arquivos da provedor
+# for arquivo in os.listdir(pasta_provedor):
+#     troca_nome_em_arquivos(arquivo, pasta_provedor, provedores, palavra_base)
 
-# Percorre todos os arquivos da gênero
-for arquivo in os.listdir(pasta_genero):
-    troca_nome_em_arquivos(arquivo, pasta_genero, generos)
+# # Percorre todos os arquivos da gênero
+# for arquivo in os.listdir(pasta_genero):
+#     troca_nome_em_arquivos(arquivo, pasta_genero, generos, palavra_base)
+
+# Percorre todos os arquivos de filme
+for arquivo in os.listdir(pasta_filme):
+    troca_nome_em_arquivos(arquivo, pasta_filme, ['Séries'], 'Filmes')
 
 print("Substituições concluídas!")
