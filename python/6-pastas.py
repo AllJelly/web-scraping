@@ -80,13 +80,11 @@ df = df.sort_values(by='validade', ascending=True)
 df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
 df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
 
+df = df.drop_duplicates(subset=["titulo", "largura", "altura","temporada", "episodio"], keep="first").reset_index(drop=True)
 
-df = df.drop_duplicates(subset=["titulo", "largura","temporada", "episodio"], keep="first").reset_index(drop=True)
-
-# df = df.iloc[4000:,:]
-# df = df.iloc[9986:,:]
-# df = df.iloc[10015:,:]
-# df = df.iloc[32000:,:]
+# Preenchendo o provedor baseado no título
+df["provedor"] = df.groupby("titulo")["provedor"].transform("first")
+df["generos"] = df.groupby("titulo")["generos"].transform("first")
 
 for _, row in df.iterrows():
     if row['tamanho_GB'] <= 0.002033:
