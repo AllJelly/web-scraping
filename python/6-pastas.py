@@ -81,7 +81,7 @@ df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausent
 df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
 
 
-df = df.drop_duplicates(subset=["titulo", "largura", "altura","temporada", "episodio"], keep="first").reset_index(drop=True)
+df = df.drop_duplicates(subset=["titulo", "largura","temporada", "episodio"], keep="first").reset_index(drop=True)
 
 # df = df.iloc[4000:,:]
 # df = df.iloc[9986:,:]
@@ -89,6 +89,8 @@ df = df.drop_duplicates(subset=["titulo", "largura", "altura","temporada", "epis
 # df = df.iloc[32000:,:]
 
 for _, row in df.iterrows():
+    if row['tamanho_GB'] <= 0.002033:
+        continue
     if pd.isna(row['generos']) == False:
         generos = [prov for prov in row['generos'].split(', ') if len(prov) > 1]
     else:
@@ -114,16 +116,16 @@ for _, row in df.iterrows():
             generos = ["Legendados"]
         else:
             generos.append("Legendados")
-    if 'Animação'in generos:
-        generos = ['Animação']
-    elif 'Documentário'in generos:
-        generos = ['Documentário']
+    if 'Animacao'in generos:
+        generos = ['Animacao']
+    elif 'Documentario'in generos:
+        generos = ['Documentario']
     elif 'Romance'in generos:
         generos = ['Romance']
     elif 'Drama'in generos:
         generos = ['Drama']
-    elif 'Comédia'in generos:
-        generos = ['Comédia']
+    elif 'Comedia'in generos:
+        generos = ['Comedia']
     else:
         generos = generos[:qtd_generos]
     if not generos:

@@ -45,7 +45,7 @@ def get_metadados(infos, link, dados, url_servidor, validade, df_out):
         if size:
             size = round(int(size) / _GB, 6)
             
-            if size == 0.002033:
+            if size <= 0.002033:
                 return
         else:
             size = None
