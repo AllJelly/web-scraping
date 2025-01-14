@@ -118,12 +118,28 @@ for _, row in df.iterrows():
         generos = ['Animacao']
     elif 'Documentario'in generos:
         generos = ['Documentario']
+    elif 'Faroeste'in generos:
+        generos = ['Faroeste']
+    elif 'Terror'in generos:
+        generos = ['Terror']
+    elif 'Comedia'in generos:
+        generos = ['Comedia']
+    elif 'Guerra'in generos:
+        generos = ['Guerra']
+    elif 'Historia'in generos:
+        generos = ['Historia']
+    elif 'Fantasia'in generos:
+        generos = ['Fantasia']
+    elif 'Fantasia'in generos:
+        generos = ['Fantasia']
+    elif 'Ficcao cientifica'in generos:
+        generos = ['Ficcao cientifica']
     elif 'Romance'in generos:
         generos = ['Romance']
     elif 'Drama'in generos:
         generos = ['Drama']
-    elif 'Comedia'in generos:
-        generos = ['Comedia']
+    elif 'Crime'in generos:
+        generos = ['Crime']
     else:
         generos = generos[:qtd_generos]
     if not generos:
