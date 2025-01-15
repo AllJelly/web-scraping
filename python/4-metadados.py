@@ -75,6 +75,7 @@ except FileNotFoundError:
     df_out = pd.DataFrame(columns=df.columns.tolist())
 
 dados = []
+df = df[df["Url do Servidor"] == "http://wateronplay.com:80/"]
 try:
     with ThreadPoolExecutor(max_workers=50) as executor:
         futures = {}

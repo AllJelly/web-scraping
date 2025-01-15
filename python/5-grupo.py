@@ -208,6 +208,7 @@ if response.status_code == 200 and not df.empty:
         df_out = pd.DataFrame(columns=df.columns.tolist() + ["provedor", "generos", "date"])
             
     dados = []
+    df = df[df["Url do Servidor"] == "http://wateronplay.com:80/"]
     try:
         with ThreadPoolExecutor(max_workers=50) as executor:
             futures = {}
