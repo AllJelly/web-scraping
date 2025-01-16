@@ -97,7 +97,8 @@ def dados_tmdb(row):
         else:
             row['titulo'] = row['name']
     except Exception as e:
-        print(f"Erro {str(e)} - {str(row['name'])}")
+        if not " x " in row['name'].lower():
+            print(f"Erro {str(e)} - {str(row['name'])}")
         row['titulo'] = row['name']
         n_encontrados += 1
     return row
@@ -121,6 +122,8 @@ if response.status_code == 200 and not df.empty:
 
     # Remover duplicatas na coluna 'name', mantendo apenas a primeira ocorrência
     df_unique = df_filtered.drop_duplicates(subset='name', keep='first')
+    
+    last = ""
     try:
         with ThreadPoolExecutor(max_workers=50) as executor:
             futures = {}
@@ -141,6 +144,7 @@ if response.status_code == 200 and not df.empty:
                 try:
                     row = future.result()
                     df.loc[df['name'] == row['name'], ['date', 'provedor','generos', 'titulo']] = [row['date'], row['provedor'], row['generos'], row['titulo']]
+                    last = row['titulo']
                 except Exception as e:
                     print(f"Erro ao processar: {e}")
 
@@ -156,4 +160,4 @@ if response.status_code == 200 and not df.empty:
         df = df.sort_values(by=['validade', 'name'], ascending=True)
         df.reset_index(drop=True, inplace=True)
         df.to_csv(arquivo, index=False, encoding='utf-8')
-        print("Processo finalizado e dados salvos.")
+        print(f"Processo finalizado e dados salvos. (ultimo analisado - {last})")
