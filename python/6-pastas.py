@@ -86,6 +86,7 @@ df = df.drop_duplicates(subset=["titulo", "largura", "altura","temporada", "epis
 df["provedor"] = df.groupby("titulo")["provedor"].transform("first")
 df["generos"] = df.groupby("titulo")["generos"].transform("first")
 
+# df = df[df["Url do Servidor"] == "http://wateronplay.com:80/"]
 for _, row in df.iterrows():
     if row['tamanho_GB'] <= 0.002033:
         continue
