@@ -223,7 +223,7 @@ try:
                     df_out.loc[df_out['link'] == link_velho, 'link'] = link_novo
                     
                 # Salvar dados intermediários em lotes de 1000
-                if len(dados) >= 500 and not interrupted:
+                if len(dados) >= 1000 and not interrupted:
                     print("Salvando dados intermediários...")
                     df_out = pd.concat([df_out, pd.DataFrame(dados)], ignore_index=True)
                     df_out = df_out.sort_values(by=['validade', 'name'], ascending=True)
