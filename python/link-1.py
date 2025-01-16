@@ -74,11 +74,18 @@ def limpaNome(name):
     
     # Substituir caracteres especiais e espaços extras
     name = re.sub(r"\*", "", name)  # Remover asteriscos
-    name = re.sub(r" 14temp| 19 Temporada| Brasil Paralelo", " ", name)  # Substituir essas ocorrências por espaço
+    name = re.sub(r" 14temp| 19 Temporada| Brasil Paralelo| -14temp|Mazzaropi - ", " ", name)  # Substituir essas ocorrências por espaço
     name = re.sub(r"\s{2,}", " ", name)  # Substituir múltiplos espaços consecutivos por um único espaço
     
     name = remove_ano(name)  # Remover ano
     name = name.split("  ")[0].strip()  # Remover partes após dois espaços consecutivos e fazer strip
+    
+    if name[-2:].lower() == " -":
+        name = name[:-2]
+    if name[-3:].lower() == " r5":
+        name = name[:-3]
+    if name[-2:].lower() == " t":
+        name = name[:-2]
     
     # Legenda
     legendado = name[-4:].lower() == " leg"
@@ -86,7 +93,7 @@ def limpaNome(name):
     legendado = name[-10:].lower() == " legendado"
     if name[-4:].lower() == " leg" or name[-4:].lower() == " [l]":
         name = name[:-4]
-    elif name[-10:].lower() == " legendado":
+    if name[-10:].lower() == " legendado":
         name = name[:-10]
     
     # Cinema
@@ -94,15 +101,16 @@ def limpaNome(name):
     cam = name[-4:].lower() == " cam"
     if name[-5:].lower() == " cine":
         name = name[:-5]
-    elif name[-4:].lower() == " cam":
+    if name[-4:].lower() == " cam":
         name = name[:-4]
-    
     
     if name[-6:].lower() == " [hdr]":
         name = name[:-6]
-    elif name[-3:].lower() == " 4k":
+    if name[-4:].lower() == " hd2":
+        name = name[:-4]
+    if name[-3:].lower() == " 4k":
         name = name[:-3]
-    elif name[-4:].lower() == " nac":
+    if name[-4:].lower() == " nac":
         name = name[:-4]
     
     # Dublado
@@ -111,12 +119,19 @@ def limpaNome(name):
     dublado = name[-5:].lower() == " dual"
     if name[-4:].lower() == " dub":
         name = name[:-4]
-    elif name[-7:].lower() == " [dual]":
+    if name[-7:].lower() == " [dual]":
         name = name[:-7]
-    elif name[-5:].lower() == " dual":
+    if name[-5:].lower() == " dual":
         name = name[:-5]
     
+    if name[-2:].lower() == " -":
+        name = name[:-2]
+    
     name = remove_ano(name) # remove ano
+    
+    if name[-2:].lower() == " -":
+        name = name[:-2]
+        
     name = remover_acentos(name)
     return name, legendado, cam, dublado
 

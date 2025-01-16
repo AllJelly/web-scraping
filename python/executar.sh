@@ -5,8 +5,8 @@ cd /mnt/c/Users/Arthur/Documents/GitHub/web-scraping/python/
 # Loop para executar o código Python 5 vezes
 for i in {1..100}
 do
-    echo "Execução $i de 5-grupo.py"
-    python 5-grupo.py
+    echo "Execução $i de grupos-2.py"
+    python grupos-2.py
 done
 
 # Aguarda a interação do usuário antes de fechar

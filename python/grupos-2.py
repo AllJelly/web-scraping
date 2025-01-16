@@ -23,6 +23,7 @@ arquivo         = "./listas/3-lista-videos/videos-2.csv"
 
 limit = 600
 count = 1
+n_encontrados = 0
 
 movie = Movie()
 serie = TV()
@@ -47,7 +48,13 @@ def dados_tmdb(row):
     Função para extrair dados do tmdb.
     """
     
+    global n_encontrados
+    
     if interrupted:
+        return row
+    
+    if " rock in rio" in row['name'].lower() or  " rock the mountain" in row['name'].lower():
+        row['titulo'] = row['name']
         return row
     
     # Criando um dicionário com os dados a serem adicionados à nova linha
@@ -88,10 +95,11 @@ def dados_tmdb(row):
             if 'release_date' in result:
                 row["date"] = result['release_date']
         else:
-            row['titulo']   = row['name']
+            row['titulo'] = row['name']
     except Exception as e:
         print(f"Erro {str(e)} - {str(row['name'])}")
-        row['titulo']   = row['name']
+        row['titulo'] = row['name']
+        n_encontrados += 1
     return row
         
 # Registrar o manipulador de sinal para Ctrl+C
@@ -104,6 +112,9 @@ response = requests.get(url, headers=headers)
 if response.status_code == 200 and not df.empty:
     # Converter a resposta em dicionário
     generos = response.json()["genres"]
+    
+    df["provedor"]  = df.groupby("titulo")["provedor"].transform("first")
+    df["generos"]   = df.groupby("titulo")["generos"].transform("first")
     
     # Filtrar as linhas onde as colunas 'provedor' e 'generos' são nulas
     df_filtered = df[df['provedor'].isna() & df['generos'].isna()]
@@ -120,7 +131,9 @@ if response.status_code == 200 and not df.empty:
                 future = executor.submit(dados_tmdb, row)
                 futures[future] = row
                 
-                count+=1
+                if not (" rock in rio" in row['name'].lower() or " rock the mountain" in row['name'].lower()):
+                    count = count + 1
+                    
                 if count > limit:
                     break
 
@@ -131,7 +144,7 @@ if response.status_code == 200 and not df.empty:
                 except Exception as e:
                     print(f"Erro ao processar: {e}")
 
-            print("Esperando threads em execução finalizarem...")
+            print(f"Esperando threads em execução finalizarem... (não encontrados - {n_encontrados})")
     except KeyboardInterrupt:
         print("Interrupção manual detectada. Finalizando...")
     finally:                
