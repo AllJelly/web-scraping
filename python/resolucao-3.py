@@ -50,8 +50,9 @@ df = pd.read_csv(arquivo)
 # Filtrar as linhas onde as colunas 'provedor' e 'generos' são nulas
 df_filtered = df[df['largura'].isna() & df['altura'].isna()]
 
+count = 0
 try:
-    with ThreadPoolExecutor(max_workers=50) as executor:
+    with ThreadPoolExecutor(max_workers=10) as executor:
         futures = {}
         for _, row in df_filtered.iterrows():
             if interrupted:
@@ -63,7 +64,13 @@ try:
         for future in as_completed(futures):
             try:
                 row = future.result()
-                df.loc[df['link'] == row['link'], ['largura', 'altura','fps', 'contagem quadros']] = [row['largura'], row['altura'], row['fps'], row['contagem quadros']]
+                if (row['largura'].isna() and row['altura'].isna()):
+                    df.loc[df['link'] == row['link'], ['largura', 'altura','fps', 'contagem quadros']] = [row['largura'], row['altura'], row['fps'], row['contagem quadros']]
+                    count+=1
+                    if count > 100:
+                        count = 0
+                        df.to_csv(arquivo, index=False, encoding='utf-8')
+                        print("Salvando dados temporarios...")
             except Exception as e:
                 print(f"Erro ao processar: {e}")
 

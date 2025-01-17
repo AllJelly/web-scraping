@@ -37,6 +37,7 @@ def verificacao(row):
         return row
     
     size = response.headers.get('Content-Length', None)
+    print(f"Tamanho encontrado {row["title"]} - ({size})")
     if size:
         row['tamanho_GB'] = round(int(size) / _GB, 6)
         row['ativo'] = True
@@ -50,7 +51,7 @@ signal.signal(signal.SIGINT, handle_interrupt)
 df = pd.read_csv(arquivo)
 
 try:
-    with ThreadPoolExecutor(max_workers=50) as executor:
+    with ThreadPoolExecutor(max_workers=10) as executor:
         futures = {}
         for _, row in df.iterrows():
             if interrupted:

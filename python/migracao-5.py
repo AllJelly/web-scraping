@@ -27,10 +27,14 @@ for merge_df, on_col, cols_to_update in merges:
     # Se as colunas para atualizar forem uma lista, atualize todas
     if isinstance(cols_to_update, list):
         for col in cols_to_update:
-            df_base[col] = merged_df[f'{col}_{on_col}']
+            col_to_update = f'{col}_{on_col}'
+            # Atualiza df_base[col] apenas se ele for NaN (None)
+            df_base[col] = df_base[col].where(df_base[col].notna(), merged_df[col_to_update])
     else:
         # Caso contrário, atualize a coluna única
-        df_base[cols_to_update] = merged_df[f'{cols_to_update}_{on_col}']
+        col_to_update = f'{cols_to_update}_{on_col}'
+        # Atualiza df_base[cols_to_update] apenas se ele for NaN (None)
+        df_base[cols_to_update] = df_base[cols_to_update].where(df_base[cols_to_update].notna(), merged_df[col_to_update])
 
 # Salvar os dados finais antes de sair
 df_base = df_base.sort_values(by=['validade', 'name'], ascending=True)
