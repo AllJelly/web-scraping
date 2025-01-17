@@ -3,7 +3,7 @@
 cd /mnt/c/Users/Arthur/Documents/GitHub/web-scraping/python/
 
 # Loop para executar o código Python 5 vezes
-for i in {1..100}
+for i in {1..50}
 do
     echo "Execução $i de grupos-2.py"
     python grupos-2.py
