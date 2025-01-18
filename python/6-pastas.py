@@ -4,7 +4,7 @@ import pandas as pd
 import unicodedata
 import os
 
-input_arq   = "./listas/lista-genero-provedor/grupo.csv"
+input_arq   = "./listas/3-lista-videos/videos-2.csv"
 out_folder  = "./strm"
 blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv']
 blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 
