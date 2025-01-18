@@ -64,13 +64,13 @@ try:
         for future in as_completed(futures):
             try:
                 row = future.result()
-                if (row['largura'].isna() and row['altura'].isna()):
+                if (row['largura'] is not None and row['altura'] is not None):
                     df.loc[df['link'] == row['link'], ['largura', 'altura','fps', 'contagem quadros']] = [row['largura'], row['altura'], row['fps'], row['contagem quadros']]
                     count+=1
                     if count > 100:
                         count = 0
                         df.to_csv(arquivo, index=False, encoding='utf-8')
-                        print("Salvando dados temporarios...")
+                        print("Salvando dados intermediarios...")
             except Exception as e:
                 print(f"Erro ao processar: {e}")
 
