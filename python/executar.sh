@@ -18,8 +18,8 @@ do
 done
 
 # Cria pastas
-echo "Execução 6-pastas.py"
-python 6-pastas.py
+# echo "Execução 6-pastas.py"
+# python 6-pastas.py
 
 
 # # Buscando resoluções
