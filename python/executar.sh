@@ -7,8 +7,8 @@ echo "Execução link-1.py"
 python link-1.py
 
 # Migra dados já existentes
-echo "Execução migracao-5.py"
-python migracao-5.py
+# echo "Execução migracao-5.py"
+# python migracao-5.py
 
 # Loop para executar o código Python 10 vezes
 for i in {1..5}
