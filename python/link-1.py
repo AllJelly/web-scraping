@@ -236,6 +236,7 @@ try:
                     dados.append(resultado)
                 elif link_novo:
                     df_out.loc[df_out['link'] == link_velho, 'link'] = link_novo
+                    print(f"Lista atualizado - {df_out.loc[df_out['link'] == link_velho, 'name']} novo ({link_novo}) velho ({link_velho})")
                     
                 # Salvar dados intermediários em lotes de 1000
                 if len(dados) >= 1000 and not interrupted:
