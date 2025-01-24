@@ -4,7 +4,7 @@ import pandas as pd
 import unicodedata
 import os
 
-input_arq   = "./listas/3-lista-videos/videos-2.csv"
+input_arq   = "./listas/3-lista-videos/videos-3.csv"
 out_folder  = "./strm"
 blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv']
 blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 
@@ -162,16 +162,9 @@ for _, row in df.iterrows():
     if not provedores:
         provedores = ['Outros']
     
-    nome = row['titulo'].replace("/", " ")
+    nome = row['name'].replace("/", " ")
 
-    if row['tipo'] == 'Filme':
-        try:
-            data = datetime.strptime(row['date'], '%Y-%m-%d')
-            arquivo = f"{nome} ({data.year})"
-        except Exception as e:
-            arquivo = f"{nome}"
-    else:
-        arquivo = nome
+    arquivo = nome
                 
     for genero in generos:
         if row['tipo'] == 'Filme':

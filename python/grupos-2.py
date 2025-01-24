@@ -19,9 +19,9 @@ tmdb = TMDb()
 tmdb.language   = 'pt-BR'
 tmdb.debug      = True
 tmdb.api_key    = '6e347a3898f3f9c7250dc0a46fb27cec'
-arquivo         = "./listas/3-lista-videos/videos-2.csv"
+arquivo         = "./listas/3-lista-videos/videos-3.csv"
 
-limit = 600
+limit = 500
 count = 1
 n_encontrados = 0
 
@@ -114,8 +114,8 @@ if response.status_code == 200 and not df.empty:
     # Converter a resposta em dicionário
     generos = response.json()["genres"]
     
-    df["provedor"]  = df.groupby("titulo")["provedor"].transform("first")
-    df["generos"]   = df.groupby("titulo")["generos"].transform("first")
+    df["provedor"]  = df.groupby("name")["provedor"].transform("first")
+    df["generos"]   = df.groupby("name")["generos"].transform("first")
     
     # Filtrar as linhas onde as colunas 'provedor' e 'generos' são nulas
     df_filtered = df[df['provedor'].isna() & df['generos'].isna()]
@@ -153,8 +153,8 @@ if response.status_code == 200 and not df.empty:
         print("Interrupção manual detectada. Finalizando...")
     finally:                
         # Preenchendo o provedor baseado no título
-        df["provedor"]  = df.groupby("titulo")["provedor"].transform("first")
-        df["generos"]   = df.groupby("titulo")["generos"].transform("first")
+        df["provedor"]  = df.groupby("name")["provedor"].transform("first")
+        df["generos"]   = df.groupby("name")["generos"].transform("first")
         
         # Salvar os dados finais antes de sair
         df = df.sort_values(by=['validade', 'name'], ascending=True)

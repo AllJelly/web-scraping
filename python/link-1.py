@@ -163,7 +163,7 @@ def get_metadados(infos, link, url_servidor, validade, df_out):
         legendado = leg1 is True or leg2 is True
         return None, None, {
             'Url do Servidor': url_servidor,
-            'name': f"{tvg_name}",
+            'name': f"\"{tvg_name}\"",
             'original_name': str(re.sub(r'\s*\([^)]*\)', '', match.group(1))),
             'group-title': group_title,
             'logo-link': tvg_logo,
