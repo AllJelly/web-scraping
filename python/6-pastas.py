@@ -8,7 +8,7 @@ input_arq   = "./listas/3-lista-videos/videos-3.csv"
 out_folder  = "./strm"
 blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv']
 blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 
-              'moviesaints', 'docsville', 'magellan tv', 'true story', 'history play']
+              'moviesaints', 'docsville', 'magellan tv', 'true story', 'history play', 'Hoichoi']
 
 mapa = {
     "A, m, a, z, o, n,  , P, r, i, m, e,  , V, i, d, e, o": "Amazon Prime Video",
