@@ -1,3 +1,4 @@
+from time import sleep
 import requests
 import pandas as pd
 import re  # Para usar expressões regulares
@@ -10,8 +11,10 @@ def consultar_chatgpt(nomes, api_key):
         "Content-Type": "application/json"
     }
 
+    print("Executando requisição")
     # Definir o prompt com o nome do filme
-    prompt = f"Quais são os provedores onde pode ser assistido, gêneros, data de lançamento e titulo conhecido dos filmes '{nomes}'? Responda no formato provedores=(lista provedores) generos=(lista gêneros) data_lancamento=(yyyy-mm-dd) titulo=(titulo conhecido), separando cada filme por quebra de linha \\n, não imprima nada alem disso"
+    prompt = f"Quais são os provedores onde pode ser assistido, gêneros, data de lançamento e titulo conhecido das midias: {nomes}? Responda no formato n=(midia passada na pesquisa mantendo - antes e depois e entre ()) provedores=(lista provedores max 2 entre ()) gêneros=(lista gêneros entre ()) data_lancamento=(yyyy-mm-dd entre ()) titulo=(titulo conhecido em português entre ()), separando cada filme por *, não imprima nada alem disso"
+    
     # Corpo da requisição
     data = {
         "model": "gpt-4o-mini",  # Substitua pelo modelo desejado
@@ -30,57 +33,75 @@ def consultar_chatgpt(nomes, api_key):
         print(response.content)
         return None
 
-def processar_resposta(nomes, resposta, dados):
+def processar_resposta(resposta, dados):
     """Processa a resposta do ChatGPT para extrair provedores, gêneros e data de lançamento."""
+    print("Processando os dados")
     
-    linhas = resposta.split('\n')
-    for nome, linha in zip(nomes, linhas):
+    linhas = resposta.split('*')
+    for linha in linhas:
         try:
             # Usar expressões regulares para capturar as informações
-            match = re.search(r'provedores=\(([^)]+)\).*?generos=\(([^)]+)\).*?data_lancamento=\(([^)]+)\)titulo=\(([^)]+)\)', linha)
-            
+            match = re.search(
+                r'n=\((.*?)\)\s*provedores=\((.*?)\)\s*gêneros=\((.*?)\)\s*data_lancamento=\((.*?)\)\s*titulo=\((.*?)\)',
+                linha
+            )
             # Se a resposta corresponder ao padrão
             if match:
-                provedores = match.group(1)
-                generos = match.group(2)
-                data_lancamento = match.group(3)
-                titulo = match.group(3)
+                nome = match.group(1)
+                provedores = match.group(2)
+                generos = match.group(3)
+                data_lancamento = match.group(4)
+                titulo = match.group(5)
                 
+                dado = [nome, provedores, generos, data_lancamento, titulo]
+                print(dado)
                 # Retornar os dados no formato desejado
-                dados.append([nome, provedores, generos, data_lancamento, titulo])
+                dados.append(dado)
+            else:
+                print(f"ERRO: {linha}")
         except Exception as e:
-            print(f"Erro ao processar resposta: {nome} - {e}")
+            print(f"Erro ao processar resposta: {linha} - {e}")
 
 # Substitua 'sua_api_key_aqui' pela sua chave da API
-api_key = "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"
+# 13:55h
+api_key = "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"
+
+# 14h
+# api_key = "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"
 
 # Criar uma lista para armazenar as informações dos filmes
 dados_filmes = []
-arquivo      = "./listas/3-lista-videos/videos-3.csv"
-arquivo_out  = "./listas/3-lista-videos/videos-ajustado.csv"
+# arquivo      = "./listas/3-lista-videos/videos-3.csv"
+arquivo = arquivo_out  = "./listas/3-lista-videos/videos-ajustado.csv"
 
-df           = pd.read_csv(arquivo)
+df          = pd.read_csv(arquivo)
 # Filtrar as linhas onde as colunas 'provedor' e 'generos' são nulas
-# df_filtered = df[df['provedor'].isna() & df['generos'].isna()]
+df_filtered = df[df['provedor'].isna() & df['generos'].isna()]
 # Remover duplicatas na coluna 'name', mantendo apenas a primeira ocorrência
-# df_unique = df_filtered.drop_duplicates(subset='name', keep='first')
-df_unique = df.drop_duplicates(subset='name', keep='first')
+df_unique   = df_filtered.drop_duplicates(subset='name', keep='first')
 
 midias = list(df_unique['name'])
-passo = 4000
-dados = []
-for i in range(0, len(midias), passo):
-    nomes = midias[i:i+passo]
-    
-    if nomes is None:
-        continue
-    resposta = consultar_chatgpt(nomes, api_key)
-    if resposta is None:
-        continue
-    
-    # Processar a resposta para extrair provedores, gêneros e data de lançamento
-    processar_resposta(nomes, resposta, dados)
 
+passo = 2
+dados = []
+try:
+    for i in range(0, len(midias), passo):
+        nomes = midias[i:i+passo]
+        
+        if nomes is None:
+            continue
+        resposta = consultar_chatgpt(nomes, api_key)
+        if resposta is None:
+            print(i)
+            break
+        
+        # Processar a resposta para extrair provedores, gêneros e data de lançamento
+        processar_resposta(resposta, dados)
+        sleep(21)
+except KeyboardInterrupt:
+    print("interrompido")
+    
+print(dados)
 for dado in dados:
     df.loc[df['name'] == dado[0], ['provedor','generos', 'date', 'titulo']] = [dado[1], dado[2], dado[3], dado[4]]
     
@@ -92,32 +113,7 @@ df["generos"]   = df.groupby("name")["generos"].transform("first")
 df = df.sort_values(by=['validade', 'name'], ascending=True)
 df.reset_index(drop=True, inplace=True)
 df.to_csv(arquivo_out, index=False, encoding='utf-8')
-        
-        
-        
-        
-        
-        
-        
-        
-        
-# # Consultar o ChatGPT para cada filme e armazenar os resultados
-# for filme in filmes:
-#     resposta = consultar_chatgpt(filme, api_key)
-#     print(f"Resposta para '{filme}':")
-#     print(resposta)
-#     print("="*50)  # Separador para clareza
-    
-#     # Processar a resposta para extrair provedores, gêneros e data de lançamento
-#     provedores, generos, data_lancamento = processar_resposta(resposta)
-    
-#     # Adicionar as informações ao list
-#     dados_filmes.append([filme, provedores, generos, data_lancamento])
-
-# # Criar o DataFrame com os dados
-# df_filmes = pd.DataFrame(dados_filmes, columns=["name", "provedores", "generos", "date"])
-
-# # Exportar para CSV
-# df_filmes.to_csv(arquivo_out, index=False, encoding='utf-8')
 
 print(f"Dados exportados para '{arquivo_out}'")
+
+# 'não disponível'
