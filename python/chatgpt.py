@@ -62,16 +62,17 @@ def processar_resposta(resposta, dados):
         except Exception as e:
             print(f"Erro ao processar resposta: {linha} - {e}")
 
-# Substitua 'sua_api_key_aqui' pela sua chave da API
-# 13:55h
-api_key = "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"
-
-# 14h
-# api_key = "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"
+    # Substitua 'sua_api_key_aqui' pela sua chave da API
+keys = [
+    # 13:55h
+    "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",
+    # 14h
+    "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",
+    "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"
+]
 
 # Criar uma lista para armazenar as informações dos filmes
 dados_filmes = []
-# arquivo      = "./listas/3-lista-videos/videos-3.csv"
 arquivo = arquivo_out  = "./listas/3-lista-videos/videos-ajustado.csv"
 
 df          = pd.read_csv(arquivo)
@@ -85,19 +86,22 @@ midias = list(df_unique['name'])
 passo = 2
 dados = []
 try:
-    for i in range(0, len(midias), passo):
-        nomes = midias[i:i+passo]
-        
-        if nomes is None:
-            continue
-        resposta = consultar_chatgpt(nomes, api_key)
-        if resposta is None:
-            print(i)
-            break
-        
-        # Processar a resposta para extrair provedores, gêneros e data de lançamento
-        processar_resposta(resposta, dados)
-        sleep(21)
+    while (True):
+        for api_key in keys:
+            for i in range(0, len(midias), passo):
+                nomes = midias[i:i+passo]
+                
+                if nomes is None:
+                    continue
+                resposta = consultar_chatgpt(nomes, api_key)
+                if resposta is None:
+                    print(i)
+                    break
+                
+                # Processar a resposta para extrair provedores, gêneros e data de lançamento
+                processar_resposta(resposta, dados)
+                sleep(21)
+        sleep(60*30)
 except KeyboardInterrupt:
     print("interrompido")
     
