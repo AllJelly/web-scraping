@@ -76,10 +76,8 @@ keys = [
     "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",
     # arthurcoelho442zip
     "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",
-    # mocic14718@eluxeer.com
-    "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",
-    # lelabas955@eluxeer.com
-    "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",
+    # temp-mail
+    "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",
 ]
 
 # Criar uma lista para armazenar as informações dos filmes
@@ -103,7 +101,7 @@ try:
         for api_key in keys:
             for i in range(init, len(midias), passo):
                 nomes = midias[i:i+passo]
-                init = i
+                init = i + passo
                 
                 if nomes is None:
                     continue
@@ -137,7 +135,7 @@ try:
             break
         print("Dormindo ...")
         print(f"Quantidade de dados que faltam {len(midias)-init}")     
-        sleep(60*2)
+        sleep(60*8)
 except KeyboardInterrupt:
     print("interrompido")
 

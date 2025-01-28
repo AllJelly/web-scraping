@@ -4,11 +4,11 @@ import pandas as pd
 import unicodedata
 import os
 
-input_arq   = "./listas/3-lista-videos/videos-3.csv"
+input_arq   = "./listas/3-lista-videos/videos-ajustado.csv"
 out_folder  = "./strm"
-blacklist = ['with ads', 'amazon channel', 'música', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv']
-blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 
-              'moviesaints', 'docsville', 'magellan tv', 'true story', 'history play', 'Hoichoi']
+blacklist = ['with ads', 'amazon channel', 'musica', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv', 'filme coringa', 'sem data definida', 'nao disponivel', 'n/a']
+blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 'telefe', 'sbt', 'televisa', 'cinema',
+              'moviesaints', 'docsville', 'magellan tv', 'true story', 'history play', 'hoichoi', 'shudder', 'vod', 'peacock', 'vudu', 'vimeo', 'youtube', 'twitch', 'filmstruck']
 
 mapa = {
     "A, m, a, z, o, n,  , P, r, i, m, e,  , V, i, d, e, o": "Amazon Prime Video",
@@ -69,10 +69,17 @@ def resolucao(largura, altura):
         "8K": (7680, 4320),
     }
     
+    if largura != None and altura != None:
+        resolucao = f" {largura}x{altura}"
+    else:
+        return ""
+    
     for rotulo, (w, h) in resolucoes.items():
         if largura == w and altura == h:
-            return f" {rotulo}"
-    return ""
+            resolucao =  f" {rotulo}"
+            break
+    
+    return resolucao
     
 df = pd.read_csv(input_arq)
 df = df.sort_values(by='validade', ascending=True)
@@ -88,8 +95,6 @@ df["generos"] = df.groupby("titulo")["generos"].transform("first")
 
 # df = df[df["Url do Servidor"] == "http://wateronplay.com:80/"]
 for _, row in df.iterrows():
-    if row['tamanho_GB'] <= 0.002033:
-        continue
     if pd.isna(row['generos']) == False:
         generos = [prov for prov in row['generos'].split(', ') if len(prov) > 1]
     else:
@@ -103,11 +108,11 @@ for _, row in df.iterrows():
         provedores = []
     
     # Genero
+    generos = [remover_acentos(item.strip()) for item in generos]
     generos = [
-        category for category in generos
+        category[0].upper()+category[1:] for category in generos
         if not any(blacklisted in category.lower() for blacklisted in blacklist)
     ]
-    generos = [remover_acentos(item.strip()) for item in generos]
     generos = ['Suspense' if category.lower() == 'thriller' else category for category in generos]
     generos = ['Documentario' if category.lower() == 'documentarios' else category for category in generos]
     if row['legendado'] == True and not ['Legendados'] in generos:
@@ -141,39 +146,49 @@ for _, row in df.iterrows():
         generos = ['Drama']
     elif 'Crime'in generos:
         generos = ['Crime']
-    else:
-        generos = generos[:qtd_generos]
     if not generos:
         generos = ['Outros']
         
     # Provedores
+    provedores = [remover_acentos(item.strip()) for item in provedores]
     provedores = [
-        category for category in provedores
+        category[0].upper()+category[1:] for category in provedores
         if not any(blacklisted in category.lower() for blacklisted in blacklist)
     ]
-    provedores = provedores[:qtd_provedores]
-    provedores = [remover_acentos(item.strip()) for item in provedores]
-    provedores = ['Amazon Prime Video' if category.lower() == 'amazon video' else category for category in provedores]
-    provedores = ['Apple TV Plus' if category.lower() in ['apple tv+', 'apple tv'] else category for category in provedores]
-    provedores = ['Disney Plus' if category.lower() == 'disney +' else category for category in provedores]
-    provedores = ['Paramount Plus' if category.lower() in ['paramount +', 'paramount plus premium'] else category for category in provedores]
+    provedores = ['Amazon Prime Video' if 'amazon' in category.lower() or 'prime video' in category.lower() else category for category in provedores]
+    provedores = ['Paramount Plus' if 'paramount' in category.lower() else category for category in provedores]
+    provedores = ['Discovery Plus' if 'discovery' in category.lower() else category for category in provedores]
+    provedores = ['Apple TV Plus' if 'apple' in category.lower() else category for category in provedores]
+    provedores = ['Disney Plus' if 'disney' in category.lower() else category for category in provedores]
+    provedores = ['GloboPlay' if 'globo' in category.lower() else category for category in provedores]
+    provedores = ['Star Plus' if 'starz' in category.lower() or 'fox' in category.lower()  else category for category in provedores]
+    provedores = ['Netflix' if 'netflix' in category.lower() else category for category in provedores]
+    provedores = ['FIFA+' if 'fifa' in category.lower() else category for category in provedores]
+    provedores = ['Max' if 'hbo' in category.lower() else category for category in provedores]
+    provedores = ['Google Play Movies' if 'google play' in category.lower() else category for category in provedores]
+
     provedores = ['Claro TV Plus' if category.lower() == 'claro tv+' else category for category in provedores]
-    provedores = ['Star Plus' if category.lower() == 'star +' else category for category in provedores]
     if not provedores:
         provedores = ['Outros']
     
+    if pd.isna(row['date']):
+        ano = ''
+    else:
+        ano = f" ({row['date'].split('-')[0]})"
+    
     nome = row['name'].replace("/", " ")
-
-    arquivo = nome
-                
+    arquivo     = nome
+     
+    provedores  = sorted(provedores)[:qtd_provedores]
+    generos     = sorted(generos)[:qtd_generos]
     for genero in generos:
         if row['tipo'] == 'Filme':
-            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/{arquivo}"
+            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/{arquivo+ano}"
             caminho_arquivo = f"{caminho}/{arquivo}"
         else:
             if row['episodio'] is None or row['temporada'] is None:
                 break
-            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/{arquivo}/Season {row['temporada']:02}"
+            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/{arquivo+ano}/Season {row['temporada']:02}"
             caminho_arquivo = f"{caminho}/{arquivo} S{row['temporada']:02}E{row['episodio']:02}"
             
         resoluc = resolucao(row['largura'], row['altura'])
