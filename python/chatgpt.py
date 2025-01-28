@@ -77,7 +77,7 @@ keys = [
     # arthurcoelho442zip
     "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",
     # temp-mail
-    "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",
+    "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",
 ]
 
 # Criar uma lista para armazenar as informações dos filmes

@@ -7,7 +7,8 @@ import os
 input_arq   = "./listas/3-lista-videos/videos-ajustado.csv"
 out_folder  = "./strm"
 blacklist = ['with ads', 'amazon channel', 'musica', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv', 'filme coringa', 'sem data definida', 'nao disponivel', 'n/a']
-blacklist += ['cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 'telefe', 'sbt', 'televisa', 'cinema',
+blacklist += ['horror',
+              'cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 'telefe', 'sbt', 'televisa', 'cinema',
               'moviesaints', 'docsville', 'magellan tv', 'true story', 'history play', 'hoichoi', 'shudder', 'vod', 'peacock', 'vudu', 'vimeo', 'youtube', 'twitch', 'filmstruck']
 
 mapa = {
@@ -68,24 +69,21 @@ def resolucao(largura, altura):
         "Cinema 4K": (4096, 2160),
         "8K": (7680, 4320),
     }
-    
-    if largura != None and altura != None:
-        resolucao = f" {largura}x{altura}"
-    else:
+    if pd.isna(largura) or pd.isna(altura):
         return ""
     
     for rotulo, (w, h) in resolucoes.items():
         if largura == w and altura == h:
-            resolucao =  f" {rotulo}"
-            break
+            return f" {rotulo}"
     
-    return resolucao
+    return f" {int(largura)}x{int(altura)}"
     
 df = pd.read_csv(input_arq)
 df = df.sort_values(by='validade', ascending=True)
 
 df['temporada'] = df['temporada'].astype('Int64')  # Suporte para valores ausentes
-df['episodio'] = df['episodio'].astype('Int64')    # Suporte para valores ausentes
+df['episodio']  = df['episodio'].astype('Int64')   # Suporte para valores ausentes
+df['titulo']    = df['titulo'].astype('string')
 
 df = df.drop_duplicates(subset=["titulo", "largura", "altura","temporada", "episodio"], keep="first").reset_index(drop=True)
 
@@ -120,31 +118,29 @@ for _, row in df.iterrows():
             generos = ["Legendados"]
         else:
             generos.append("Legendados")
-    if 'Animacao'in generos:
+    if any([True for genero in generos if 'animacao' in genero.lower()]):
         generos = ['Animacao']
-    elif 'Documentario'in generos:
+    elif any([True for genero in generos if 'documentario' in genero.lower()]):
         generos = ['Documentario']
-    elif 'Faroeste'in generos:
+    elif any([True for genero in generos if 'faroeste' in genero.lower()]):
         generos = ['Faroeste']
-    elif 'Terror'in generos:
+    elif any([True for genero in generos if 'terror' in genero.lower()]):
         generos = ['Terror']
-    elif 'Comedia'in generos:
+    elif any([True for genero in generos if 'comedia' in genero.lower()]):
         generos = ['Comedia']
-    elif 'Guerra'in generos:
+    elif any([True for genero in generos if 'guerra' in genero.lower()]):
         generos = ['Guerra']
-    elif 'Historia'in generos:
+    elif any([True for genero in generos if 'historia' in genero.lower()]):
         generos = ['Historia']
-    elif 'Fantasia'in generos:
+    elif any([True for genero in generos if 'fantasia' in genero.lower()]):
         generos = ['Fantasia']
-    elif 'Fantasia'in generos:
-        generos = ['Fantasia']
-    elif 'Ficcao cientifica'in generos:
+    elif any([True for genero in generos if 'ficcao cientifica' in genero.lower()]):
         generos = ['Ficcao cientifica']
-    elif 'Romance'in generos:
+    elif any([True for genero in generos if 'romance' in genero.lower()]):
         generos = ['Romance']
-    elif 'Drama'in generos:
+    elif any([True for genero in generos if 'drama' in genero.lower()]):
         generos = ['Drama']
-    elif 'Crime'in generos:
+    elif any([True for genero in generos if 'crime' in genero.lower()]):
         generos = ['Crime']
     if not generos:
         generos = ['Outros']
@@ -174,22 +170,25 @@ for _, row in df.iterrows():
     if pd.isna(row['date']):
         ano = ''
     else:
-        ano = f" ({row['date'].split('-')[0]})"
+        ano = f"({row['date'].split('-')[0]})"
     
-    nome = row['name'].replace("/", " ")
-    arquivo     = nome
+    if pd.notna(row['titulo']):
+        arquivo = row['titulo'].replace("/", " ")
+    else:
+        continue
+        arquivo = row['name'].replace("/", " ")
      
     provedores  = sorted(provedores)[:qtd_provedores]
     generos     = sorted(generos)[:qtd_generos]
     for genero in generos:
         if row['tipo'] == 'Filme':
-            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/{arquivo+ano}"
-            caminho_arquivo = f"{caminho}/{arquivo}"
+            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/-{arquivo}- {ano}"
+            caminho_arquivo = f"{caminho}/-{arquivo}-"
         else:
             if row['episodio'] is None or row['temporada'] is None:
                 break
-            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/{arquivo+ano}/Season {row['temporada']:02}"
-            caminho_arquivo = f"{caminho}/{arquivo} S{row['temporada']:02}E{row['episodio']:02}"
+            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/-{arquivo}- {ano}/Season {row['temporada']:02}"
+            caminho_arquivo = f"{caminho}/-{arquivo}- S{row['temporada']:02}E{row['episodio']:02}"
             
         resoluc = resolucao(row['largura'], row['altura'])
         if row['legendado'] == True:
