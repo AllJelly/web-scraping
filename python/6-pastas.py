@@ -6,9 +6,9 @@ import os
 
 input_arq   = "./listas/3-lista-videos/videos-ajustado.csv"
 out_folder  = "./strm"
-blacklist = ['with ads', 'amazon channel', 'musica', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv', 'filme coringa', 'sem data definida', 'nao disponivel', 'n/a']
+blacklist = ['with ads', 'amazon channel', 'musica', ' tv channel', 'mgm+ apple tv channel', 'docalliance films', '007 colecao', 'cinema tv', 'filme coringa', 'sem data definida', 'nao disponivel', 'n/a', 'n/d']
 blacklist += ['horror',
-              'cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 'telefe', 'sbt', 'televisa', 'cinema',
+              'cultpix', 'eventive', 'microsoft', 'gospel play', 'WOW Presents Plus', 'filmicca', 'spamflix', 'sun nxt', 'telefe', 'sbt', 'televisa', 'cinema', 'streaming',
               'moviesaints', 'docsville', 'magellan tv', 'true story', 'history play', 'hoichoi', 'shudder', 'vod', 'peacock', 'vudu', 'vimeo', 'youtube', 'twitch', 'filmstruck']
 
 mapa = {
@@ -176,19 +176,18 @@ for _, row in df.iterrows():
         arquivo = row['titulo'].replace("/", " ")
     else:
         continue
-        arquivo = row['name'].replace("/", " ")
      
     provedores  = sorted(provedores)[:qtd_provedores]
     generos     = sorted(generos)[:qtd_generos]
     for genero in generos:
         if row['tipo'] == 'Filme':
-            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/-{arquivo}- {ano}"
-            caminho_arquivo = f"{caminho}/-{arquivo}-"
+            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/*{arquivo}* {ano}"
+            caminho_arquivo = f"{caminho}/*{arquivo}*"
         else:
             if row['episodio'] is None or row['temporada'] is None:
                 break
-            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/-{arquivo}- {ano}/Season {row['temporada']:02}"
-            caminho_arquivo = f"{caminho}/-{arquivo}- S{row['temporada']:02}E{row['episodio']:02}"
+            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/*{arquivo}* {ano}/Season {row['temporada']:02}"
+            caminho_arquivo = f"{caminho}/*{arquivo}* S{row['temporada']:02}E{row['episodio']:02}"
             
         resoluc = resolucao(row['largura'], row['altura'])
         if row['legendado'] == True:
