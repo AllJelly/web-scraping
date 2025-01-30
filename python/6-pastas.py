@@ -3,6 +3,7 @@ from datetime import datetime
 import pandas as pd
 import unicodedata
 import os
+import math
 
 input_arq   = "./listas/3-lista-videos/videos-ajustado.csv"
 out_folder  = "./strm"
@@ -56,27 +57,92 @@ def remover_acentos(texto):
 
 def resolucao(largura, altura):
     resolucoes = {
-        "144p": (256, 144),
-        "240p": (426, 240),
-        "360p": (640, 360),
-        "480p": (854, 480),
-        "576p": (720, 576),
-        "720p": (1280, 720),
-        "1080p": (1920, 1080),
-        "WUXGA": (1920, 1200),
-        "2K": (2560, 1440),
-        "4K": (3840, 2160),
-        "Cinema 4K": (4096, 2160),
-        "8K": (7680, 4320),
+        "144p": (256, 144),  # 36864 pixels
+        "240p": (426, 240),  # 102240 pixels
+        "SVGA": (800, 600),  # 480000 pixels
+        "WVGA": (800, 480),  # 384000 pixels
+        "SD 480p": (854, 480),  # 410880 pixels
+        "WXGA": (1366, 768),  # 1049088 pixels
+        "Super HD": (1366, 768),  # 1049088 pixels (marketing termo, geralmente para 1366x768)
+        "HD+": (1600, 900),  # 1440000 pixels
+        "HD 720p": (1280, 720),  # 921600 pixels
+        "WGA": (1280, 800),  # 1024000 pixels
+        "Full HD 1080p": (1920, 1080),  # 2073600 pixels
+        "2K": (2560, 1440),  # 3686400 pixels
+        "QHD (Quad HD)": (2560, 1440),  # 3686400 pixels (mesma resolução que 2K)
+        "Ultrawide HD 1080p": (2560, 1080),  # 2764800 pixels
+        "Ultrawide 2K 1440p": (3440, 1440),  # 4949760 pixels
+        "Super Ultrawide 2K 1440p": (5120, 1440),  # 7372800 pixels
+        "4K UHD": (3840, 2160),  # 8294400 pixels
+        "Ultra HD 4K": (3840, 2160),  # 8294400 pixels (mesma resolução que 4K)
+        "Cinema 4K": (4096, 2160),  # 8847360 pixels
+        "Super Ultrawide 4K": (5120, 2160),  # 11059200 pixels
+        "5K": (5120, 2880),  # 14745600 pixels
+        "8K UHD": (7680, 4320),  # 33177600 pixels
+        "16K": (15360, 8640),  # 132710400 pixels
+        "UXGA": (1600, 1200),  # 1920000 pixels
+        "XGA": (1024, 768),  # 786432 pixels
+        "Wide QXGA": (2048, 1152),  # 2359296 pixels
     }
+
     if pd.isna(largura) or pd.isna(altura):
         return ""
+    largura, altura = int(largura), int(altura)
     
     for rotulo, (w, h) in resolucoes.items():
         if largura == w and altura == h:
             return f" {rotulo}"
     
-    return f" {int(largura)}x{int(altura)}"
+    def proporcao_para_label(proporcao):
+        proporcoes_comuns = {
+            (16, 9): "16-9",
+            (21, 9): "21-9",
+            (2, 1): "2-1",
+            (4, 3): "4-3",
+            (3, 2): "3-2",
+        }
+
+        w, h = map(int, proporcao.split(":"))
+        
+        # Verifica qual proporção mais próxima das predefinidas
+        for (px, py), label in proporcoes_comuns.items():
+            # Calcula a diferença entre as proporções
+            if abs(w * py - h * px) < 10:  # Tolerância de 10 unidades para maior flexibilidade
+                return label
+        
+        return proporcao
+    def calcular_diferenca_proporcao(proporcao1, proporcao2):
+        w1, h1 = map(int, proporcao1.split(":"))
+        w2, h2 = map(int, proporcao2.split(":"))
+        return abs(w1 * h2 - h1 * w2)  # Diferença entre as proporções (multiplicação cruzada)
+    def calcular_proporcao(largura, altura):
+        mdc = math.gcd(largura, altura)
+        if mdc == 0:
+            return ""
+        largura_simplificada = largura // mdc
+        altura_simplificada = altura // mdc
+        return f"{largura_simplificada}-{altura_simplificada}"
+    
+    resolucao_mais_proxima = None
+    proporcao = calcular_proporcao(largura, altura)
+    if proporcao != "":
+        menor_diferenca = float('inf')
+        for rotulo, (w, h) in resolucoes.items():
+            proporcao_resolucao = calcular_proporcao(w, h)
+            if proporcao_resolucao == '':
+                continue
+            diferenca = calcular_diferenca_proporcao(proporcao, proporcao_resolucao)
+            if diferenca < menor_diferenca:
+                menor_diferenca = diferenca
+                resolucao_mais_proxima = rotulo
+    
+    if resolucao_mais_proxima != None:
+        # Converte a proporção calculada para o label de proporção mais próximo
+        proporcao_formatada = proporcao_para_label(proporcao)
+        return f" {resolucao_mais_proxima} {proporcao_formatada}"
+    else:
+        return f" {largura}x{altura}"
+        
     
 df = pd.read_csv(input_arq)
 df = df.sort_values(by='validade', ascending=True)
@@ -174,6 +240,7 @@ for _, row in df.iterrows():
     
     if pd.notna(row['titulo']):
         arquivo = row['titulo'].replace("/", " ")
+        arquivo = arquivo.replace(":", " ")
     else:
         continue
      
@@ -181,13 +248,13 @@ for _, row in df.iterrows():
     generos     = sorted(generos)[:qtd_generos]
     for genero in generos:
         if row['tipo'] == 'Filme':
-            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/*{arquivo}* {ano}"
-            caminho_arquivo = f"{caminho}/*{arquivo}*"
+            caminho = f"{out_folder}/Filmes/{provedores[0]}/{genero}/{arquivo} {ano}"
+            caminho_arquivo = f"{caminho}/{arquivo} {ano}"
         else:
             if row['episodio'] is None or row['temporada'] is None:
                 break
-            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/*{arquivo}* {ano}/Season {row['temporada']:02}"
-            caminho_arquivo = f"{caminho}/*{arquivo}* S{row['temporada']:02}E{row['episodio']:02}"
+            caminho = f"{out_folder}/Series/{provedores[0]}/{genero}/{arquivo} {ano}/Season {row['temporada']:02}"
+            caminho_arquivo = f"{caminho}/{arquivo} S{row['temporada']:02}E{row['episodio']:02}"
             
         resoluc = resolucao(row['largura'], row['altura'])
         if row['legendado'] == True:
