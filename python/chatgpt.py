@@ -78,6 +78,7 @@ keys = [
     "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",
     # temp-mail
     "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",
+    "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",
 ]
 
 # Criar uma lista para armazenar as informações dos filmes
